@@ -10,7 +10,11 @@ class App extends Component {
     }
   }
 
-  FetchOpeningMovies = async () => {
+  componentDidMount = () => {
+    this.fetchOpeningMovies();
+  }
+
+  fetchOpeningMovies = async () => {
     const openingMovies = await fetchMovies();
     this.setState({ openingMovies })
   }
