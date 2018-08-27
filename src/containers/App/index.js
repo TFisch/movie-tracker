@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
+import { fetchMovies } from '../../api/apiCalls';
 import './style.css';
 
 class App extends Component {
   constructor() {
     super()
     this.state = {
-      openingMovies =[]
+      openingMovies: []
     }
   }
 
