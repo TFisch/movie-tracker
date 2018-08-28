@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import { Route } from 'react-router-dom';
+import { addMovies } from '../../actions/addMovies';
 import { fetchMovies } from '../../api/apiCalls';
 import './style.css';
 
 class App extends Component {
   constructor() {
-    super()
-    this.state = {
-      openingMovies: []
-    }
+    super();
   }
 
   componentDidMount = () => {
@@ -17,16 +17,28 @@ class App extends Component {
 
   fetchOpeningMovies = async () => {
     const openingMovies = await fetchMovies();
-    this.setState({ openingMovies })
+    this.props.addMovies(openingMovies);
   }
 
   render() {
     return (
       <div className="App">
-
+        hello
       </div>
     );
   }
 }
 
-export default App;
+const mapStateToProps = (state) => ({
+
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  addMovies: (moviesData) => dispatch(addMovies(moviesData))
+});
+
+App.propTypes = {
+  addMovies: PropTypes.func
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
