@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { Route } from 'react-router-dom';
 import { addMovies } from '../../actions/addMovies';
 import { fetchMovies } from '../../api/apiCalls';
+import CardContainer from '../CardContainer'
 import './style.css';
 
 class App extends Component {
@@ -19,7 +20,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        hello
+        <CardContainer />
       </div>
     );
   }
