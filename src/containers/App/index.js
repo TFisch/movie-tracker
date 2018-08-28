@@ -7,10 +7,6 @@ import { fetchMovies } from '../../api/apiCalls';
 import './style.css';
 
 class App extends Component {
-  constructor() {
-    super();
-  }
-
   componentDidMount = () => {
     this.fetchOpeningMovies();
   }
