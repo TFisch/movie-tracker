@@ -1,4 +1,5 @@
 import React from 'react';
+import './style.css';
 
 export const Card = ({ title }) => {
 
@@ -6,7 +7,7 @@ export const Card = ({ title }) => {
     <div className="card">
       <h1>{title}</h1>
     </div>
-  )
-}
+  );
+};
 
 export default Card;
