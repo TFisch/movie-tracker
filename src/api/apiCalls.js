@@ -15,18 +15,20 @@ export const login = async ({ email, password }) => {
     body: JSON.stringify({ email, password }),
     headers: { 'Content-Type': 'application/json' }
   });
-  const data = await response.json();
-  return data.results;
+  return await response.json();
 }
 
 export const signUp = async ({ userName, email, password }) => {
-  const url = 'http://localhost:3000/api/users/new'
-  const response = await fetch(url, {
-    method: 'POST',
-    body: JSON.stringify({ name: userName, email, password }),
-    headers: { 'Content-Type': 'application/json' }
-  });
-  const data = await response.json();
-  return data.results;
+  try {
+    const url = 'http://localhost:3000/api/users/new'
+    const response = await fetch(url, {
+      method: 'POST',
+      body: JSON.stringify({ name: userName, email, password }),
+      headers: { 'Content-Type': 'application/json' }
+    });
+    return await response.json();
+  } catch (error) {
+    throw (console.log(error))
+  }
 }
 
