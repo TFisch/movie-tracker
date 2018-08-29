@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { Route, Redirect } from 'react-router-dom';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter, Route } from 'react-router-dom';
 import { addMovies } from '../../actions';
 import { fetchMovies } from '../../api/apiCalls';
 import CardContainer from '../CardContainer';
