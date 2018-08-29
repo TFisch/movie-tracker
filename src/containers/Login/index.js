@@ -17,16 +17,17 @@ export class Login extends Component {
     this.setState({ [name]: value });
   }
 
-  handleSubmit = (e) => {
-    login(this.state);
-    this.setState({ userName: '', password: '' });
+  handleSubmit = async (e) => {
+    e.preventDefault();
+    await login(this.state);
+    // this.setState({ userName: '', password: '' });
   }
 
   render() {
-    const { userName, password } = this.state;
+    const { email, password } = this.state;
     return (
       <form className='user-login' onSubmit={this.handleSubmit}>
-        <input name='userName' type='email' value={userName} onChange={this.handleChange} />
+        <input name='email' type='email' value={email} onChange={this.handleChange} />
         <input name='password' type='password' value={password} onChange={this.handleChange} />
         <button>LogIn</button>
       </form>

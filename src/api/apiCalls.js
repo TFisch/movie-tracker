@@ -18,3 +18,15 @@ export const login = async ({ email, password }) => {
   const data = await response.json();
   return data.results;
 }
+
+export const signup = async ({ userName, email, password }) => {
+  const url = 'http://localhost:3000/api/users/new'
+  const response = await fertch(url, {
+    method: 'POST',
+    body: JSON.stringify({ userName, email, password }),
+    headers: { 'Content-Type': 'application/json' }
+  });
+  const data = await response.json();
+  return data.results;
+}
+
