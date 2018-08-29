@@ -4,7 +4,10 @@ import PropTypes from 'prop-types';
 import { Route } from 'react-router-dom';
 import { addMovies } from '../../actions/addMovies';
 import { fetchMovies } from '../../api/apiCalls';
-import CardContainer from '../CardContainer'
+import CardContainer from '../CardContainer';
+import { Login } from '../../containers/Login';
+import { SignUp } from '../../containers/SignUp';
+import { Header } from '../../components/Header';
 import './style.css';
 
 class App extends Component {
@@ -20,7 +23,10 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Route path="/" component={CardContainer} />
+        <Route path='/' component={Header} />
+        <Route exact path='/login' component={Login} />
+        <Route exact path='/signup' component={SignUp} />
+        <Route path='/' component={CardContainer} />
       </div>
     );
   }
