@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Route } from 'react-router-dom';
-import { addMovies } from '../../actions/addMovies';
+import { addMovies } from '../../actions';
 import { fetchMovies } from '../../api/apiCalls';
 import CardContainer from '../CardContainer';
 import { Login } from '../../containers/Login';
