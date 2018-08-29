@@ -20,7 +20,7 @@ export class Login extends Component {
   handleSubmit = async (e) => {
     e.preventDefault();
     await login(this.state);
-    // this.setState({ userName: '', password: '' });
+    this.setState({ userName: '', password: '' });
   }
 
   render() {
