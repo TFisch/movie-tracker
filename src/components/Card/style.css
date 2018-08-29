@@ -1,2 +1,7 @@
 .card {
-  border: 2px solid #ffcb9a; }
+  border: 2px solid #ffcb9a;
+  margin: 1em .5em; }
+
+.card:hover {
+  border-color: #116466;
+  opacity: .5; }
