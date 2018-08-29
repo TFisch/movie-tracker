@@ -4,9 +4,9 @@ import './style.css';
 
 export const NavBar = () => {
   return (
-    <div>
-      <Link to='/login'>login</Link>
-      <Link to='/signup'>SignUp</Link>
+    <div className='nav-bar'>
+      <Link to='/login'><button className='login'>login</button></Link>
+      <Link to='/signup'><button className='signup'>SignUp</button></Link>
     </div>
   );
 };

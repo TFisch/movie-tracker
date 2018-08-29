@@ -1,0 +1,33 @@
+@import '../../styles/variables.scss';
+
+.nav-bar {
+  color: $gold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login {
+  margin-right: .5em;
+  width: 5em;
+  font-size: 1em;
+  padding: .2em .5em;
+  border-radius: 1em;
+  border: 0px;
+  background-color: $tan;
+  color: $light-blue;
+}
+
+.login:hover {
+
+}
+
+.signup {
+  width: 5em;
+  font-size: 1em;
+  padding: .2em .5em;
+  border-radius: 1em;
+  border: 0px;
+  background-color: $tan;
+  color: $light-blue;
+}
