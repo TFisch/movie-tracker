@@ -27,8 +27,8 @@ export class Login extends Component {
     const { email, password } = this.state;
     return (
       <form className='user-login' onSubmit={this.handleSubmit}>
-        <input name='email' type='email' value={email} onChange={this.handleChange} />
-        <input name='password' type='password' value={password} onChange={this.handleChange} />
+        <input name='email' placeholder='email' type='email' value={email} onChange={this.handleChange} />
+        <input name='password' placeholder='password' type='password' value={password} onChange={this.handleChange} />
         <button>LogIn</button>
       </form>
     );

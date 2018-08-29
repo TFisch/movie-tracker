@@ -19,9 +19,9 @@ export const login = async ({ email, password }) => {
   return data.results;
 }
 
-export const signup = async ({ userName, email, password }) => {
+export const signUp = async ({ userName, email, password }) => {
   const url = 'http://localhost:3000/api/users/new'
-  const response = await fertch(url, {
+  const response = await fetch(url, {
     method: 'POST',
     body: JSON.stringify({ userName, email, password }),
     headers: { 'Content-Type': 'application/json' }
