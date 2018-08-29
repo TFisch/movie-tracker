@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { Route } from 'react-router-dom';
+import { Route, Redirect } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 import { addMovies } from '../../actions';
 import { fetchMovies } from '../../api/apiCalls';
 import CardContainer from '../CardContainer';
@@ -22,12 +23,14 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        <Route path='/' component={Header} />
-        <Route exact path='/login' component={Login} />
-        <Route exact path='/signup' component={SignUp} />
-        <Route path='/' component={CardContainer} />
-      </div>
+      <BrowserRouter>
+        <div className="App">
+          <Route path='/' component={Header} />
+          <Route exact path='/login' component={Login} />
+          <Route exact path='/signup' component={SignUp} />
+          <Route path='/' component={CardContainer} />
+        </div>
+      </BrowserRouter>
     );
   }
 }
