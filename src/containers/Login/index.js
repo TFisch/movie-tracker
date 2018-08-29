@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './style.css';
+import { login } from '../../api/apiCalls'
 
 export class Login extends Component {
   constructor() {
@@ -13,20 +14,20 @@ export class Login extends Component {
   handleChange = (e) => {
     e.preventDefault();
     const { name, value } = e.target;
-    this.setState({[name]: value});
+    this.setState({ [name]: value });
   }
 
   handleSubmit = (e) => {
-    //this is where we hook up our action for submiting a post to the backend.
-    this.setState({userName: '', password: ''});
+    login(this.state);
+    this.setState({ userName: '', password: '' });
   }
 
   render() {
-    const {userName, password} = this.state;
+    const { userName, password } = this.state;
     return (
       <form className='user-login' onSubmit={this.handleSubmit}>
-        <input name='userName' type='email' value={userName} onChange={this.handleChange}/>
-        <input name='password' type='password' value={password} onChange={this.handleChange}/>
+        <input name='userName' type='email' value={userName} onChange={this.handleChange} />
+        <input name='password' type='password' value={password} onChange={this.handleChange} />
         <button>LogIn</button>
       </form>
     );
