@@ -7,7 +7,7 @@ export const Header = () => {
   return (
     <div className='header'>
       <div className='title-container'>
-        <h1>Movie Tracker</h1>
+        <h1 className='title'>Movie Tracker</h1>
       </div>
       <Route path='/' component={NavBar} />
     </div>

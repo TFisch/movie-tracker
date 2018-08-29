@@ -13,8 +13,10 @@
   justify-content: center;
 }
 
-.header h1 {
+.title {
   color: $gold;
+  font-family: $title-font;
+  font-size: 3.5em;
   margin: .5em 0;
-  font-size: 3em;
+  text-shadow: 2.5px 2.5px black;
 }
