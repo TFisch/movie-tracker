@@ -11,13 +11,13 @@ export class SignUp extends Component {
     };
   }
 
-  handleChange = (e) => {
-    e.preventDefault();
-    const { name, value } = e.target;
+  handleChange = (event) => {
+    event.preventDefault();
+    const { name, value } = event.target;
     this.setState({[name]: value});
   }
 
-  handleSubmit = (e) => {
+  handleSubmit = (event) => {
     //this is where we hook up our action for submiting a post to the backend.
     this.setState({userName: '', email: '', password: ''});
   }

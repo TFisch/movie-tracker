@@ -1,0 +1,24 @@
+.nav-bar {
+  color: #ffcb9a;
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+
+.login {
+  margin-right: .5em;
+  width: 5em;
+  font-size: 1em;
+  padding: .2em .5em;
+  border-radius: 1em;
+  border: 0px;
+  background-color: #d9b08c;
+  color: #d1e8e2; }
+
+.signup {
+  width: 5em;
+  font-size: 1em;
+  padding: .2em .5em;
+  border-radius: 1em;
+  border: 0px;
+  background-color: #d9b08c;
+  color: #d1e8e2; }
