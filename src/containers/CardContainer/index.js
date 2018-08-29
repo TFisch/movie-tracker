@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import './style.css';
 
 const CardContainer = (props) => {
-  const displayMovies = props.movies.map(movie => <Card  {...movie} />);
+  const displayMovies = props.movies.map(movie => <Card key={movie.id} {...movie} />);
   return (
     <div className="card-container">
       {displayMovies}
