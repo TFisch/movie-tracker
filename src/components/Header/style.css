@@ -1,0 +1,15 @@
+.header {
+  background-color: #116466;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 1em; }
+
+.title-container {
+  display: flex;
+  flex-grow: 1;
+  justify-content: center; }
+
+.header h1 {
+  color: #ffcb9a;
+  margin: .5em 0;
+  font-size: 3em; }
