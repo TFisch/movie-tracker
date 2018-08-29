@@ -29,7 +29,7 @@ export class SignUp extends Component {
     return (
       <form className='user-login' onSubmit={this.handleSubmit}>
         <input name='userName' placeholder='username' value={userName} onChange={this.handleChange} />
-        <input name='email' placeholder='email' value={email} onChange={this.handleChange} />
+        <input name='email' placeholder='email' type='email' value={email} onChange={this.handleChange} />
         <input name='password' placeholder='password' type='password' value={password} onChange={this.handleChange} />
         <button>SignUp</button>
       </form>
