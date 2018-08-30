@@ -6,7 +6,7 @@ import { addMovies } from '../../actions';
 import { fetchMovies } from '../../api/apiCalls';
 import CardContainer from '../CardContainer';
 import Login from '../../containers/Login';
-import { SignUp } from '../../containers/SignUp';
+import SignUp from '../../containers/SignUp';
 import { Header } from '../../components/Header';
 import './style.css';
 
@@ -19,7 +19,6 @@ class App extends Component {
     const openingMovies = await fetchMovies();
     this.props.addMovies(openingMovies);
   }
-
 
   render() {
     return (
@@ -35,10 +34,6 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = (state) => ({
-
-});
-
 const mapDispatchToProps = (dispatch) => ({
   addMovies: (moviesData) => dispatch(addMovies(moviesData))
 });
@@ -47,4 +42,4 @@ App.propTypes = {
   addMovies: PropTypes.func
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(null, mapDispatchToProps)(App);
