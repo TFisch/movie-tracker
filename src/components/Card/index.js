@@ -1,16 +1,42 @@
 import React from 'react';
-import './style.css';
 import StarRatings from 'react-star-ratings';
+import { connect } from 'react-redux';
+import { addFavorite } from '../../actions';
 import { postFavorites } from '../../api/apiCalls';
+import './style.css';
 
-export const Card = ({ movie }) => {
-  const { poster_path, vote_average } = movie
+export const Card = (props) => {
+  const { movie, user, addFavorite } = props;
+  const { poster_path, vote_average } = movie;
   const rating = vote_average / 2;
+
+  const handleFavorite = () => {
+    const favoriteData = {...movie, user_id: user.id};
+    addFavorite(favoriteData);
+    postFavorites(favoriteData);
+  };
+
   return (
     <div className='card'>
-      <button>FAVORITE</button>
+      <button onClick={() => handleFavorite()}>FAVORITE</button>
       <img className='poster-image' src={poster_path} alt='movie data' />
-      <StarRatings starDimension={'1em'} rating={rating} numberOfStars={5} starRatedColor={'gold'} />
+      <StarRatings 
+        starDimension={'1em'} 
+        rating={rating} 
+        numberOfStars={5} 
+        starRatedColor={'gold'} 
+      />
     </div>
   );
 };
+
+const mapStateToProps = (state) => ({
+  user: state.userData
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  addFavorite: (movie) => dispatch(addFavorite(movie)),
+  postFavorites: (movie) => dispatch(postFavorites(movie))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Card);
