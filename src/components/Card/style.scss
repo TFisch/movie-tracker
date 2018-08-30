@@ -5,9 +5,16 @@
   flex-direction: column;
   border: 2px solid $gold;
   margin: 1em .5em;
+  .star {
+    display: none;
+  }
 }
 
 .card:hover {
   border-color: $turquoise;
-  opacity: .5;
+  .star {
+    display: block;
+  }
 }
+
+

@@ -10,7 +10,7 @@ export const Card = ({ movie }) => {
     <div className='card'>
       <button>FAVORITE</button>
       <img className='poster-image' src={poster_path} alt='movie data' />
-      <StarRatings starDimension={'1em'} rating={rating} numberOfStars={5} starRatedColor={'gold'} />
+      <StarRatings className="star" starDimension={'1em'} rating={rating} numberOfStars={5} starRatedColor={'gold'} />
     </div>
   );
 };

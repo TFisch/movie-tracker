@@ -3,9 +3,10 @@
   flex-direction: column;
   border: 2px solid #ffcb9a;
   margin: 1em .5em; }
+  .card .star {
+    display: none; }
 
 .card:hover {
-  border-color: #116466;
-  opacity: .5;
- }
-
+  border-color: #116466; }
+  .card:hover .star {
+    display: block; }
