@@ -6,12 +6,10 @@ export const addMovies = (movieData) => ({
 export const addFavorite = (movie) => ({
   type: 'ADD_FAVORITE',
   movie
-})
+});
 
-export const setActiveUser = ({ id, name }) => {
-  return ({
-    type: 'SET_ACTIVE_USER',
-    id,
-    name
-  })
-}
+export const setActiveUser = ({ id, name }) => ({
+  type: 'SET_ACTIVE_USER',
+  id,
+  name
+});

@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
+import { login } from '../../api/apiCalls';
+import { setActiveUser } from "../../actions";
 import './style.css';
-import { login } from '../../api/apiCalls'
-import { setActiveUser } from "../../actions"
 
 export class Login extends Component {
   constructor(props) {
@@ -30,17 +30,28 @@ export class Login extends Component {
     const { email, password } = this.state;
     return (
       <form className='user-login' onSubmit={this.handleSubmit}>
-        <input name='email' placeholder='email' type='email' value={email} onChange={this.handleChange} />
-        <input name='password' placeholder='password' type='password' value={password} onChange={this.handleChange} />
+        <input 
+          name='email' 
+          placeholder='email' 
+          type='email' 
+          value={email} 
+          onChange={this.handleChange} 
+        />
+        <input 
+          name='password' 
+          placeholder='password' 
+          type='password' 
+          value={password} 
+          onChange={this.handleChange} 
+        />
         <button>LogIn</button>
       </form>
     );
   }
 }
 
-
 const mapDispatchToProps = (dispatch) => ({
   setActiveUser: (user) => dispatch(setActiveUser(user))
-})
+});
 
-export default connect(null, mapDispatchToProps)(Login)
+export default connect(null, mapDispatchToProps)(Login);
