@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import './style.css';
+import { connect } from 'react-redux';
 import { signUp } from '../../api/apiCalls';
+import { setActiveUser } from "../../actions";
+import './style.css';
 
 export class SignUp extends Component {
   constructor() {
@@ -20,7 +22,8 @@ export class SignUp extends Component {
 
   handleSubmit = async (event) => {
     event.preventDefault();
-    await signUp(this.state);
+    const user = await signUp(this.state);
+    this.props.setActiveUser(user);
     this.setState({ userName: '', email: '', password: '' });
   }
 
@@ -28,11 +31,34 @@ export class SignUp extends Component {
     const { userName, email, password } = this.state;
     return (
       <form className='user-login' onSubmit={this.handleSubmit}>
-        <input name='userName' placeholder='username' value={userName} onChange={this.handleChange} />
-        <input name='email' placeholder='email' type='email' value={email} onChange={this.handleChange} />
-        <input name='password' placeholder='password' type='password' value={password} onChange={this.handleChange} />
+        <input 
+          name='userName' 
+          placeholder='username' 
+          value={userName} 
+          onChange={this.handleChange} 
+        />
+        <input 
+          name='email' 
+          placeholder='email' 
+          type='email' 
+          value={email} 
+          onChange={this.handleChange} 
+        />
+        <input 
+          name='password' 
+          placeholder='password' 
+          type='password' 
+          value={password} 
+          onChange={this.handleChange} 
+        />
         <button>SignUp</button>
       </form>
     );
   }
 }
+
+const mapDispatchToProps = (dispatch) => ({
+  setActiveUser: (user) => dispatch(setActiveUser(user))
+});
+
+export default connect(null, mapDispatchToProps)(SignUp);
