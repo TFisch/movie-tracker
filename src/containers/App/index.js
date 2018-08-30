@@ -5,7 +5,7 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import { addMovies } from '../../actions';
 import { fetchMovies } from '../../api/apiCalls';
 import CardContainer from '../CardContainer';
-import { Login } from '../../containers/Login';
+import Login from '../../containers/Login';
 import { SignUp } from '../../containers/SignUp';
 import { Header } from '../../components/Header';
 import './style.css';
@@ -19,6 +19,7 @@ class App extends Component {
     const openingMovies = await fetchMovies();
     this.props.addMovies(openingMovies);
   }
+
 
   render() {
     return (
