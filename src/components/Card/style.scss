@@ -1,5 +1,13 @@
 @import '../../styles/variables.scss';
 
 .card {
+  display: flex;
+  flex-direction: column;
   border: 2px solid $gold;
+  margin: 1em .5em;
+}
+
+.card:hover {
+  border-color: $turquoise;
+  opacity: .5;
 }
