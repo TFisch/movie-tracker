@@ -8,9 +8,11 @@ export const Card = ({ movie }) => {
   const rating = vote_average / 2;
   return (
     <div className='card'>
-      <button>FAVORITE</button>
+      <div className='favorite-wrapper'>
+        <button className='favorite'></button>
+        <StarRatings className='star' starDimension={'1em'} rating={rating} numberOfStars={5} starRatedColor={'gold'} />
+      </div>
       <img className='poster-image' src={poster_path} alt='movie data' />
-      <StarRatings starDimension={'1em'} rating={rating} numberOfStars={5} starRatedColor={'gold'} />
     </div>
   );
 };
