@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card } from '../../components/Card';
+import Card from '../../components/Card';
 import { connect } from 'react-redux';
 import './style.css';
 
@@ -16,8 +16,4 @@ const mapStateToProps = (state) => ({
   movies: state.moviesData
 });
 
-const mapDispatchToProps = (dispatch) => ({
-
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(CardContainer);
+export default connect(mapStateToProps)(CardContainer);
