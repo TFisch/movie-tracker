@@ -13,3 +13,8 @@ export const setActiveUser = ({ id, name }) => ({
   id,
   name
 });
+
+export const setUserFavorites = (favorites) => ({
+  type: 'SET_USER_FAVORITES',
+  favorites
+});
