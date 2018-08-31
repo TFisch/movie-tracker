@@ -59,3 +59,10 @@ export const postFavorites = async (movie) => {
   });
   return await response.json();
 };
+
+export const getFavorites = async ({id}) => {
+  const url = `http://localhost:3000/api/users/${id}/favorites`;
+  const response = await fetch(url);
+  const usersFavorites = await response.json();
+  return usersFavorites.data;
+};
