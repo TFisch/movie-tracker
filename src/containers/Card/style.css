@@ -31,7 +31,7 @@
   top: 3em;
   width: 70%; }
 
-.favorite {
+.favoriteBtn {
   background: url("../../Images/like.svg") no-repeat;
   border: none;
   background-size: cover;
