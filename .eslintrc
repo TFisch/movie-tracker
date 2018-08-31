@@ -45,7 +45,6 @@
         "allowSingleLine": true
       }
     ],
-    "camelcase": "warn",
     "comma-dangle": [
       "error",
       "never"
