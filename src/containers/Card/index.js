@@ -5,12 +5,15 @@ import PropTypes from 'prop-types';
 import StarRatings from 'react-star-ratings';
 import { addFavorite } from '../../actions';
 import { postFavorites } from '../../api/apiCalls';
+import classNames from 'classnames/bind';
 import './style.css';
 
 export const Card = (props) => {
   const { movie, user, addFavorite } = props;
   const { poster_path, vote_average } = movie;
   const rating = vote_average / 2;
+
+  const buttonClass = classNames({ favoriteBtn: true, favorited: props.favorites.find(movie => (movie.movie_id === props.movie.movie_id)) });
 
   const handleFavorite = () => {
     const favoriteData = { ...movie, user_id: user.id };
@@ -28,13 +31,13 @@ export const Card = (props) => {
 
   const noUserFavoriteButton = () => (
     <Link to='/login'>
-      <button className='favorite'>
+      <button className={buttonClass}>
       </button>
     </Link>
   );
 
   const userFavoriteButton = () => (
-    <button className='favorite' onClick={() => handleFavorite()}>
+    <button className={buttonClass} onClick={() => handleFavorite()}>
     </button>
   );
 
@@ -43,11 +46,11 @@ export const Card = (props) => {
       <div className='favorite-wrapper'>
         <Route exact path='/' component={noUserFavoriteButton}></Route>
         <Route path='/user' component={userFavoriteButton}></Route>
-        <StarRatings 
-          starDimension={'1em'} 
-          rating={rating} 
-          numberOfStars={5} 
-          starRatedColor={'gold'} 
+        <StarRatings
+          starDimension={'1em'}
+          rating={rating}
+          numberOfStars={5}
+          starRatedColor={'gold'}
         />
       </div>
       <img className='poster-image' src={poster_path} alt='movie data' />
