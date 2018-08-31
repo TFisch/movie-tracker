@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import Card from '../../components/Card';
+import Card from '../../containers/Card';
 import './style.css';
 
 const CardContainer = (props) => {
