@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Route, Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import StarRatings from 'react-star-ratings';
 import { addFavorite } from '../../actions';
@@ -17,13 +18,23 @@ export const Card = (props) => {
     postFavorites(favoriteData);
   };
 
+  const noUserFavoriteButton = () => (
+    <Link to='/login'>
+      <button className='favorite'>
+      </button>
+    </Link>
+  );
+
+  const userFavoriteButton = () => (
+    <button className='favorite' onClick={() => handleFavorite()}>
+    </button>
+  );
+
   return (
     <div className='card'>
       <div className='favorite-wrapper'>
-        <button 
-          className='favorite' 
-          onClick={() => handleFavorite()}>
-        </button>
+        <Route exact path='/' component={noUserFavoriteButton}></Route>
+        <Route path='/user' component={userFavoriteButton}></Route>
         <StarRatings 
           starDimension={'1em'} 
           rating={rating} 
