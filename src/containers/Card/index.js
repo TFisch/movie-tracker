@@ -13,9 +13,17 @@ export const Card = (props) => {
   const rating = vote_average / 2;
 
   const handleFavorite = () => {
-    const favoriteData = {...movie, user_id: user.id};
-    addFavorite(favoriteData);
-    postFavorites(favoriteData);
+    const favoriteData = { ...movie, user_id: user.id };
+    const favoriteMovieId = favoriteData.movie_id;
+    const checkFavorites = props.favorites.find(favorite => favorite.movie_id === favoriteMovieId);
+    if (props.user.id) {
+      if (checkFavorites) {
+        return;
+      } else {
+        addFavorite(favoriteData);
+        postFavorites(favoriteData);
+      }
+    }
   };
 
   const noUserFavoriteButton = () => (
@@ -48,7 +56,8 @@ export const Card = (props) => {
 };
 
 const mapStateToProps = (state) => ({
-  user: state.userData
+  user: state.userData,
+  favorites: state.userFavorites
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -57,8 +66,9 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 Card.propTypes = {
-  movie: PropTypes.object,
   user: PropTypes.object,
+  movie: PropTypes.object,
+  favorites: PropTypes.array,
   addFavorite: PropTypes.func,
   postFavorites: PropTypes.func
 };
