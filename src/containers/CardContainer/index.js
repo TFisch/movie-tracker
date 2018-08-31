@@ -5,7 +5,13 @@ import Card from '../../containers/Card';
 import './style.css';
 
 const CardContainer = (props) => {
-  const displayMovies = props.movies.map(movie => <Card key={movie.id} movie={movie} />);
+  const displayMovies = props.movies.map(movie => (
+    <Card 
+      key={Date.now() * Math.random()} 
+      movie={movie} 
+    />)
+  );
+  
   return (
     <div className="card-container">
       {displayMovies}
