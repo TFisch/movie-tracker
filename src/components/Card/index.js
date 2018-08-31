@@ -1,6 +1,7 @@
 import React from 'react';
-import StarRatings from 'react-star-ratings';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import StarRatings from 'react-star-ratings';
 import { addFavorite } from '../../actions';
 import { postFavorites } from '../../api/apiCalls';
 import './style.css';
@@ -43,5 +44,12 @@ const mapDispatchToProps = (dispatch) => ({
   addFavorite: (movie) => dispatch(addFavorite(movie)),
   postFavorites: (movie) => dispatch(postFavorites(movie))
 });
+
+Card.propTypes = {
+  movie: PropTypes.object,
+  user: PropTypes.object,
+  addFavorite: PropTypes.func,
+  postFavorites: PropTypes.func
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(Card);
