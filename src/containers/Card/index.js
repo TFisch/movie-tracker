@@ -13,7 +13,12 @@ export const Card = (props) => {
   const { poster_path, vote_average } = movie;
   const rating = vote_average / 2;
 
-  const buttonClass = classNames({ favoriteBtn: true, favorited: props.favorites.find(movie => (movie.movie_id === props.movie.movie_id)) });
+  const buttonClass = classNames(
+    { 
+      favoriteBtn: true, 
+      favorited: props.favorites.find(movie => (movie.movie_id === props.movie.movie_id)) 
+    }
+  );
 
   const handleFavorite = () => {
     const favoriteData = { ...movie, user_id: user.id };
