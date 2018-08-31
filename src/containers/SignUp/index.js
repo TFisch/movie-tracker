@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import { signUp } from '../../api/apiCalls';
 import { setActiveUser } from "../../actions";
 import './style.css';
@@ -60,5 +61,9 @@ export class SignUp extends Component {
 const mapDispatchToProps = (dispatch) => ({
   setActiveUser: (user) => dispatch(setActiveUser(user))
 });
+
+SignUp.propTypes = {
+  setActiveUser: PropTypes.func
+};
 
 export default connect(null, mapDispatchToProps)(SignUp);

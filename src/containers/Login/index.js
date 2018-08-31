@@ -1,28 +1,31 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { login } from '../../api/apiCalls';
-import { setActiveUser } from "../../actions";
+import PropTypes from 'prop-types';
+import { setActiveUser, setUserFavorites } from "../../actions";
+import { login, getFavorites } from '../../api/apiCalls';
 import './style.css';
 
 export class Login extends Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
       email: '',
       password: ''
     };
   }
 
-  handleChange = (e) => {
-    e.preventDefault();
-    const { name, value } = e.target;
+  handleChange = (event) => {
+    event.preventDefault();
+    const { name, value } = event.target;
     this.setState({ [name]: value });
   }
 
-  handleSubmit = async (e) => {
-    e.preventDefault();
+  handleSubmit = async (event) => {
+    event.preventDefault();
     const user = await login(this.state);
     this.props.setActiveUser(user);
+    const userFavorites = await getFavorites(user);
+    this.props.setUserFavorites(userFavorites);
     this.setState({ userName: '', password: '' });
   }
 
@@ -51,7 +54,13 @@ export class Login extends Component {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-  setActiveUser: (user) => dispatch(setActiveUser(user))
+  setActiveUser: (user) => dispatch(setActiveUser(user)),
+  setUserFavorites: (favorites) => dispatch(setUserFavorites(favorites))
 });
+
+Login.propTypes = {
+  setActiveUser: PropTypes.func,
+  setUserFavorites: PropTypes.func
+};
 
 export default connect(null, mapDispatchToProps)(Login);

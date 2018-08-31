@@ -1,6 +1,8 @@
 import React from 'react';
-import StarRatings from 'react-star-ratings';
 import { connect } from 'react-redux';
+import { Route, Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import StarRatings from 'react-star-ratings';
 import { addFavorite } from '../../actions';
 import { postFavorites } from '../../api/apiCalls';
 import './style.css';
@@ -24,18 +26,28 @@ export const Card = (props) => {
     }
   };
 
+  const noUserFavoriteButton = () => (
+    <Link to='/login'>
+      <button className='favorite'>
+      </button>
+    </Link>
+  );
+
+  const userFavoriteButton = () => (
+    <button className='favorite' onClick={() => handleFavorite()}>
+    </button>
+  );
+
   return (
     <div className='card'>
       <div className='favorite-wrapper'>
-        <button
-          className='favorite'
-          onClick={() => handleFavorite()}>
-        </button>
-        <StarRatings
-          starDimension={'1em'}
-          rating={rating}
-          numberOfStars={5}
-          starRatedColor={'gold'}
+        <Route exact path='/' component={noUserFavoriteButton}></Route>
+        <Route path='/user' component={userFavoriteButton}></Route>
+        <StarRatings 
+          starDimension={'1em'} 
+          rating={rating} 
+          numberOfStars={5} 
+          starRatedColor={'gold'} 
         />
       </div>
       <img className='poster-image' src={poster_path} alt='movie data' />
@@ -52,5 +64,13 @@ const mapDispatchToProps = (dispatch) => ({
   addFavorite: (movie) => dispatch(addFavorite(movie)),
   postFavorites: (movie) => dispatch(postFavorites(movie))
 });
+
+Card.propTypes = {
+  user: PropTypes.object,
+  movie: PropTypes.object,
+  favorites: PropTypes.array,
+  addFavorite: PropTypes.func,
+  postFavorites: PropTypes.func
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(Card);
