@@ -57,5 +57,5 @@ export const postFavorites = async (movie) => {
     body: JSON.stringify(movie),
     headers: { 'Content-Type': 'application/json' }
   });
-  console.log(await response.json());
+  return await response.json();
 };

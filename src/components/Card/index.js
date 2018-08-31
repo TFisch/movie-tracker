@@ -11,27 +11,41 @@ export const Card = (props) => {
   const rating = vote_average / 2;
 
   const handleFavorite = () => {
-    const favoriteData = {...movie, user_id: user.id};
-    addFavorite(favoriteData);
-    postFavorites(favoriteData);
+    const favoriteData = { ...movie, user_id: user.id };
+    const favoriteMovieId = favoriteData.movie_id;
+    const checkFavorites = props.favorites.find(favorite => favorite.movie_id === favoriteMovieId);
+    if (props.user.id) {
+      if (checkFavorites) {
+        return;
+      } else {
+        addFavorite(favoriteData);
+        postFavorites(favoriteData);
+      }
+    }
   };
 
   return (
     <div className='card'>
-      <button onClick={() => handleFavorite()}>FAVORITE</button>
+      <div className='favorite-wrapper'>
+        <button
+          className='favorite'
+          onClick={() => handleFavorite()}>
+        </button>
+        <StarRatings
+          starDimension={'1em'}
+          rating={rating}
+          numberOfStars={5}
+          starRatedColor={'gold'}
+        />
+      </div>
       <img className='poster-image' src={poster_path} alt='movie data' />
-      <StarRatings 
-        starDimension={'1em'} 
-        rating={rating} 
-        numberOfStars={5} 
-        starRatedColor={'gold'} 
-      />
     </div>
   );
 };
 
 const mapStateToProps = (state) => ({
-  user: state.userData
+  user: state.userData,
+  favorites: state.userFavorites
 });
 
 const mapDispatchToProps = (dispatch) => ({
