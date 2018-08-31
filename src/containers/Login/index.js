@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
 import { setActiveUser, setUserFavorites } from "../../actions";
 import { login, getFavorites } from '../../api/apiCalls';
 import './style.css';
@@ -60,7 +59,8 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 Login.propTypes = {
-  setActiveUser: PropTypes.func
+  setActiveUser: PropTypes.func,
+  setUserFavorites: PropTypes.func
 };
 
 export default connect(null, mapDispatchToProps)(Login);
