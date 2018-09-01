@@ -3,8 +3,8 @@ import { connect } from 'react-redux';
 import { Route, Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import StarRatings from 'react-star-ratings';
-import { addFavorite } from '../../actions';
-import { postFavorites } from '../../api/apiCalls';
+import { addFavorite, removeFavorite } from '../../actions';
+import { postFavorites, deleteFavorite } from '../../api/apiCalls';
 import classNames from 'classnames/bind';
 import './style.css';
 
@@ -23,10 +23,12 @@ export const Card = (props) => {
   const handleFavorite = () => {
     const favoriteData = { ...movie, user_id: user.id };
     const favoriteMovieId = favoriteData.movie_id;
-    const checkFavorites = props.favorites.find(favorite => favorite.movie_id === favoriteMovieId);
+    const userId = user.id;
+    const favoriteExists = props.favorites.find(favorite => favorite.movie_id === favoriteMovieId);
     if (props.user.id) {
-      if (checkFavorites) {
-        return;
+      if (favoriteExists) {
+        removeFavorite(favoriteMovieId);
+        deleteFavorite(userId, favoriteMovieId);
       } else {
         addFavorite(favoriteData);
         postFavorites(favoriteData);
@@ -70,7 +72,8 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   addFavorite: (movie) => dispatch(addFavorite(movie)),
-  postFavorites: (movie) => dispatch(postFavorites(movie))
+  postFavorites: (movie) => dispatch(postFavorites(movie)),
+  removeFavorite: (user, movie) => dispatch(removeFavorite(user, movie))
 });
 
 Card.propTypes = {
@@ -78,7 +81,8 @@ Card.propTypes = {
   movie: PropTypes.object,
   favorites: PropTypes.array,
   addFavorite: PropTypes.func,
-  postFavorites: PropTypes.func
+  postFavorites: PropTypes.func,
+  removeFavorite: PropTypes.func
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Card);
