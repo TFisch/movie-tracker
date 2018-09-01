@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { signUp } from '../../api/apiCalls';
 import { setActiveUser } from "../../actions";
+import { Redirect } from react - router - dom;
 import './style.css';
 
 export class SignUp extends Component {
@@ -11,7 +12,8 @@ export class SignUp extends Component {
     this.state = {
       userName: '',
       email: '',
-      password: ''
+      password: '',
+      toUserPage: false
     };
   }
 
@@ -29,28 +31,31 @@ export class SignUp extends Component {
   }
 
   render() {
+    if (this.state.toUserPage === true) {
+      <Redirect to='/User' />
+    }
     const { userName, email, password } = this.state;
     return (
       <form className='user-login' onSubmit={this.handleSubmit}>
-        <input 
-          name='userName' 
-          placeholder='username' 
-          value={userName} 
-          onChange={this.handleChange} 
+        <input
+          name='userName'
+          placeholder='username'
+          value={userName}
+          onChange={this.handleChange}
         />
-        <input 
-          name='email' 
-          placeholder='email' 
-          type='email' 
-          value={email} 
-          onChange={this.handleChange} 
+        <input
+          name='email'
+          placeholder='email'
+          type='email'
+          value={email}
+          onChange={this.handleChange}
         />
-        <input 
-          name='password' 
-          placeholder='password' 
-          type='password' 
-          value={password} 
-          onChange={this.handleChange} 
+        <input
+          name='password'
+          placeholder='password'
+          type='password'
+          value={password}
+          onChange={this.handleChange}
         />
         <button>SignUp</button>
       </form>
