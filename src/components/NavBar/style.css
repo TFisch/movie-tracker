@@ -4,7 +4,8 @@
   align-items: center;
   justify-content: center; }
 
-.button {
+.login {
+  margin-right: .5em;
   width: 5em;
   font-size: 1em;
   padding: .2em .5em;
@@ -13,5 +14,15 @@
   background-color: #ffcb9a;
   font-family: "Montserrat", sans-serif;
   font-weight: 600;
-  color: #116466; 
-}
+  color: #116466; }
+
+.signup {
+  width: 5em;
+  font-size: 1em;
+  padding: .2em .5em;
+  border-radius: 1em;
+  border: 0px;
+  background-color: #ffcb9a;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  color: #116466; }
