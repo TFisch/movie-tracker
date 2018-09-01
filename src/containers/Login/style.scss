@@ -1,18 +1,28 @@
+@import '../../styles/variables.scss';
+
+.log-header {
+  color: $gold;
+}
+
 .user-login {
   align-items: center;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   position: absolute;
-  left: 39%;
+  left: 35.5%;
   top: 20%;
   z-index: 1;
-  background-color: pink;
+  background-color: $grey2;
   height: 20em;
   width: 26em;
+  font-family: $sub-font;
 }
 
 .input-field {
   height: 2em;
   width: 60%;
+  margin-bottom: 1.5em;
+  font-size: .85em;
+  font-weight: bold;
 }

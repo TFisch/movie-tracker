@@ -39,7 +39,7 @@ export class Login extends Component {
     const { email, password } = this.state;
     return (
       <form className='user-login' onSubmit={this.handleSubmit}>
-        <h1>Log In</h1>
+        <h2 className='log-header'>Log In</h2>
         <input
           className='email input-field'
           name='email'
@@ -56,7 +56,7 @@ export class Login extends Component {
           value={password}
           onChange={this.handleChange}
         />
-        <button className="input-field">LogIn</button>
+        <button className="log-button input-field">Log In</button>
       </form>
     );
   }
