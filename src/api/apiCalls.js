@@ -32,7 +32,8 @@ export const login = async ({ email, password }) => {
     headers: { 'Content-Type': 'application/json' }
   });
   const user = await response.json();
-  return { id: user.data.id, name: user.data.name };
+  const { id, name } = user.data;
+  return { user_id: id, name };
 };
 
 export const signUp = async ({ userName, email, password }) => {
@@ -60,8 +61,8 @@ export const postFavorites = async (movie) => {
   return await response.json();
 };
 
-export const getFavorites = async ({id}) => {
-  const url = `http://localhost:3000/api/users/${id}/favorites`;
+export const getFavorites = async ({user_id}) => {
+  const url = `http://localhost:3000/api/users/${user_id}/favorites`;
   const response = await fetch(url);
   const usersFavorites = await response.json();
   return usersFavorites.data;
@@ -69,6 +70,6 @@ export const getFavorites = async ({id}) => {
 
 export const deleteFavorite = async (user_id, movie_id) => {
   const url = `http://localhost:3000/api/users/${user_id}/favorites/${movie_id}`;
-  const response = await fetch(url);
+  const response = await fetch(url, {method: 'DELETE'});
   return response.json();
 };
