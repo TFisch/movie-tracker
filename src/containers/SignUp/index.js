@@ -26,14 +26,16 @@ export class SignUp extends Component {
   handleSubmit = async (event) => {
     event.preventDefault();
     const user = await signUp(this.state);
+    const toUserPage = true;
     this.props.setActiveUser(user);
-    this.setState({ userName: '', email: '', password: '' });
+    this.setState({ userName: '', email: '', password: '', toUserPage });
   }
 
   render() {
     if (this.state.toUserPage === true) {
       <Redirect to='/User' />
     }
+
     const { userName, email, password } = this.state;
     return (
       <form className='user-login' onSubmit={this.handleSubmit}>
