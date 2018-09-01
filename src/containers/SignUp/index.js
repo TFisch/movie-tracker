@@ -41,12 +41,14 @@ export class SignUp extends Component {
       <form className='user-login' onSubmit={this.handleSubmit}>
         <h2 className='log-header'>Sign Up</h2>
         <input
+          className='input-field'
           name='userName'
           placeholder='username'
           value={userName}
           onChange={this.handleChange}
         />
         <input
+          className='input-field'
           name='email'
           placeholder='email'
           type='email'
@@ -54,13 +56,14 @@ export class SignUp extends Component {
           onChange={this.handleChange}
         />
         <input
+          className='input-field'
           name='password'
           placeholder='password'
           type='password'
           value={password}
           onChange={this.handleChange}
         />
-        <button>SignUp</button>
+        <button className="log-button input-field">Sign up</button>
       </form>
     );
   }
