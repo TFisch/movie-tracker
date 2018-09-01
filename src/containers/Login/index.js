@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { setActiveUser, setUserFavorites } from "../../actions";
 import { login, getFavorites } from '../../api/apiCalls';
-import { Route, Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './style.css';
 
 export class Login extends Component {
@@ -28,15 +28,10 @@ export class Login extends Component {
     this.props.setActiveUser(user);
     const userFavorites = await getFavorites(user);
     this.props.setUserFavorites(userFavorites);
-    const isLoggedIn = true;
-    this.setState({ userName: '', password: '', isLoggedIn });
+    this.setState({ userName: '', password: '' });
   }
 
   render() {
-    if (this.state.isLoggedIn === true) {
-
-      <Redirect to='/' />
-    }
     const { email, password } = this.state;
     return (
       <form className='user-login' onSubmit={this.handleSubmit}>
@@ -57,7 +52,9 @@ export class Login extends Component {
           value={password}
           onChange={this.handleChange}
         />
-        <button className="log-button input-field">Log In</button>
+        <Link to={`/user/`} >
+          <button className="log-button input-field">Log In</button>
+        </Link>
       </form>
     );
   }
