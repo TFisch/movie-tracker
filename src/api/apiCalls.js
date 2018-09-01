@@ -66,3 +66,9 @@ export const getFavorites = async ({id}) => {
   const usersFavorites = await response.json();
   return usersFavorites.data;
 };
+
+export const deleteFavorite = async (user_id, movie_id) => {
+  const url = `http://localhost:3000/api/users/${user_id}/favorites/${movie_id}`;
+  const response = await fetch(url);
+  return response.json();
+};
