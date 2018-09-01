@@ -8,9 +8,9 @@ import { postFavorites, deleteFavorite } from '../../api/apiCalls';
 import classNames from 'classnames/bind';
 import './style.css';
 
-export const Card = (props) => {
-  const { movie, user, addFavorite } = props;
-  const { poster_path, vote_average } = movie;
+const Card = (props) => {
+  const { movie, user, favorites, removeFavorite, addFavorite } = props;
+  const { poster_path, vote_average, movie_id } = movie;
   const rating = vote_average / 2;
 
   const buttonClass = classNames(
@@ -21,14 +21,14 @@ export const Card = (props) => {
   );
 
   const handleFavorite = () => {
-    const favoriteData = { ...movie, user_id: user.id };
-    const favoriteMovieId = favoriteData.movie_id;
-    const userId = user.id;
-    const favoriteExists = props.favorites.find(favorite => favorite.movie_id === favoriteMovieId);
-    if (props.user.id) {
+    const { user_id } = user;
+    const favoriteData = { ...movie, user_id };
+    const existingMovieId = movie_id;
+    const favoriteExists = favorites.find(favorite => favorite.movie_id === existingMovieId);
+    if (user_id) {
       if (favoriteExists) {
-        removeFavorite(favoriteMovieId);
-        deleteFavorite(userId, favoriteMovieId);
+        removeFavorite(movie);
+        deleteFavorite(user_id, existingMovieId);
       } else {
         addFavorite(favoriteData);
         postFavorites(favoriteData);
@@ -51,8 +51,8 @@ export const Card = (props) => {
   return (
     <div className='card'>
       <div className='favorite-wrapper'>
-        <Route exact path='/' component={noUserFavoriteButton}></Route>
-        <Route path='/user' component={userFavoriteButton}></Route>
+        {/* <Route exact path='/' component={noUserFavoriteButton}></Route> */}
+        <Route path='/' component={userFavoriteButton}></Route>
         <StarRatings
           starDimension={'1em'}
           rating={rating}
@@ -73,7 +73,7 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   addFavorite: (movie) => dispatch(addFavorite(movie)),
   postFavorites: (movie) => dispatch(postFavorites(movie)),
-  removeFavorite: (user, movie) => dispatch(removeFavorite(user, movie))
+  removeFavorite: (movie) => dispatch(removeFavorite(movie))
 });
 
 Card.propTypes = {
