@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { setActiveUser, setUserFavorites } from "../../actions";
 import { login, getFavorites } from '../../api/apiCalls';
-import { Redirect } from 'react-router-dom';
+import { Route, Redirect } from 'react-router-dom';
 import './style.css';
 
 export class Login extends Component {
@@ -34,6 +34,7 @@ export class Login extends Component {
 
   render() {
     if (this.state.isLoggedIn === true) {
+
       <Redirect to='/' />
     }
     const { email, password } = this.state;
