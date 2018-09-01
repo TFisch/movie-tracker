@@ -1,7 +1,16 @@
 .user-login {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
   position: absolute;
   left: 39%;
+  top: 20%;
   z-index: 1;
   background-color: pink;
-  height: 10em;
-  width: 20em; }
+  height: 20em;
+  width: 26em; }
+
+.input-field {
+  height: 2em;
+  width: 60%; }
