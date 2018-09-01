@@ -3,25 +3,32 @@ import { connect } from 'react-redux';
 import { Route, Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import StarRatings from 'react-star-ratings';
-import { addFavorite } from '../../actions';
-import { postFavorites } from '../../api/apiCalls';
+import { addFavorite, removeFavorite } from '../../actions';
+import { postFavorites, deleteFavorite } from '../../api/apiCalls';
 import classNames from 'classnames/bind';
 import './style.css';
 
-export const Card = (props) => {
-  const { movie, user, addFavorite } = props;
-  const { poster_path, vote_average } = movie;
+const Card = (props) => {
+  const { movie, user, favorites, removeFavorite, addFavorite } = props;
+  const { poster_path, vote_average, movie_id } = movie;
   const rating = vote_average / 2;
 
-  const buttonClass = classNames({ favoriteBtn: true, favorited: props.favorites.find(movie => (movie.movie_id === props.movie.movie_id)) });
+  const buttonClass = classNames(
+    { 
+      favoriteBtn: true, 
+      favorited: props.favorites.find(movie => (movie.movie_id === props.movie.movie_id)) 
+    }
+  );
 
   const handleFavorite = () => {
-    const favoriteData = { ...movie, user_id: user.id };
-    const favoriteMovieId = favoriteData.movie_id;
-    const checkFavorites = props.favorites.find(favorite => favorite.movie_id === favoriteMovieId);
-    if (props.user.id) {
-      if (checkFavorites) {
-        return;
+    const { user_id } = user;
+    const favoriteData = { ...movie, user_id };
+    const existingMovieId = movie_id;
+    const favoriteExists = favorites.find(favorite => favorite.movie_id === existingMovieId);
+    if (user_id) {
+      if (favoriteExists) {
+        removeFavorite(movie);
+        deleteFavorite(user_id, existingMovieId);
       } else {
         addFavorite(favoriteData);
         postFavorites(favoriteData);
@@ -44,8 +51,8 @@ export const Card = (props) => {
   return (
     <div className='card'>
       <div className='favorite-wrapper'>
-        <Route exact path='/' component={noUserFavoriteButton}></Route>
-        <Route path='/user' component={userFavoriteButton}></Route>
+        {/* <Route exact path='/' component={noUserFavoriteButton}></Route> */}
+        <Route path='/' component={userFavoriteButton}></Route>
         <StarRatings
           starDimension={'1em'}
           rating={rating}
@@ -65,7 +72,8 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   addFavorite: (movie) => dispatch(addFavorite(movie)),
-  postFavorites: (movie) => dispatch(postFavorites(movie))
+  postFavorites: (movie) => dispatch(postFavorites(movie)),
+  removeFavorite: (movie) => dispatch(removeFavorite(movie))
 });
 
 Card.propTypes = {
@@ -73,7 +81,8 @@ Card.propTypes = {
   movie: PropTypes.object,
   favorites: PropTypes.array,
   addFavorite: PropTypes.func,
-  postFavorites: PropTypes.func
+  postFavorites: PropTypes.func,
+  removeFavorite: PropTypes.func
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Card);

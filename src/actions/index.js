@@ -8,9 +8,14 @@ export const addFavorite = (movie) => ({
   movie
 });
 
-export const setActiveUser = ({ id, name }) => ({
+export const removeFavorite = ({movie_id}) => ({
+  type: 'REMOVE_FAVORITE',
+  movie_id
+});
+
+export const setActiveUser = ({ user_id, name }) => ({
   type: 'SET_ACTIVE_USER',
-  id,
+  user_id,
   name
 });
 
