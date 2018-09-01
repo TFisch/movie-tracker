@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { setActiveUser, setUserFavorites } from "../../actions";
 import { login, getFavorites } from '../../api/apiCalls';
+import { Redirect } from 'react-router-dom';
 import './style.css';
 
 export class Login extends Component {
@@ -10,7 +11,8 @@ export class Login extends Component {
     super();
     this.state = {
       email: '',
-      password: ''
+      password: '',
+      isLoggedIn: false
     };
   }
 
@@ -26,26 +28,30 @@ export class Login extends Component {
     this.props.setActiveUser(user);
     const userFavorites = await getFavorites(user);
     this.props.setUserFavorites(userFavorites);
-    this.setState({ userName: '', password: '' });
+    const isLoggedIn = true;
+    this.setState({ userName: '', password: '', isLoggedIn });
   }
 
   render() {
+    if (this.state.isLoggedIn === true) {
+      <Redirect to='/' />
+    }
     const { email, password } = this.state;
     return (
       <form className='user-login' onSubmit={this.handleSubmit}>
-        <input 
-          name='email' 
-          placeholder='email' 
-          type='email' 
-          value={email} 
-          onChange={this.handleChange} 
+        <input
+          name='email'
+          placeholder='email'
+          type='email'
+          value={email}
+          onChange={this.handleChange}
         />
-        <input 
-          name='password' 
-          placeholder='password' 
-          type='password' 
-          value={password} 
-          onChange={this.handleChange} 
+        <input
+          name='password'
+          placeholder='password'
+          type='password'
+          value={password}
+          onChange={this.handleChange}
         />
         <button>LogIn</button>
       </form>

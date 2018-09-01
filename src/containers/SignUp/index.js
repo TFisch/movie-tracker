@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { signUp } from '../../api/apiCalls';
-import { setActiveUser } from "../../actions";
-import { Redirect } from react - router - dom;
+import { setActiveUser } from '../../actions';
+import { Redirect } from 'react-router-dom';
 import './style.css';
 
 export class SignUp extends Component {
@@ -26,14 +26,14 @@ export class SignUp extends Component {
   handleSubmit = async (event) => {
     event.preventDefault();
     const user = await signUp(this.state);
-    const toUserPage = true;
+    let toUserPage = true;
     this.props.setActiveUser(user);
     this.setState({ userName: '', email: '', password: '', toUserPage });
   }
 
   render() {
     if (this.state.toUserPage === true) {
-      <Redirect to='/User' />
+      <Redirect to='/' />
     }
 
     const { userName, email, password } = this.state;
