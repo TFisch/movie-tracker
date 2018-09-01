@@ -39,6 +39,7 @@ export class SignUp extends Component {
     const { userName, email, password } = this.state;
     return (
       <form className='user-login' onSubmit={this.handleSubmit}>
+        <h2 className='log-header'>Sign Up</h2>
         <input
           name='userName'
           placeholder='username'
