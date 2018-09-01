@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { signUp } from '../../api/apiCalls';
 import { setActiveUser } from '../../actions';
-import { Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './style.css';
 
 export class SignUp extends Component {
@@ -13,7 +13,6 @@ export class SignUp extends Component {
       userName: '',
       email: '',
       password: '',
-      toUserPage: false
     };
   }
 
@@ -32,9 +31,6 @@ export class SignUp extends Component {
   }
 
   render() {
-    if (this.state.toUserPage === true) {
-      <Redirect to='/' />
-    }
 
     const { userName, email, password } = this.state;
     return (
@@ -63,7 +59,9 @@ export class SignUp extends Component {
           value={password}
           onChange={this.handleChange}
         />
-        <button className="log-button input-field">Sign up</button>
+        <Link to={`/user/`} >
+          <button className="log-button input-field">Sign up</button>
+        </Link>
       </form>
     );
   }

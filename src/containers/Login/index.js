@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { setActiveUser, setUserFavorites } from "../../actions";
 import { login, getFavorites } from '../../api/apiCalls';
-import { Link } from 'react-router-dom';
+import { Link, } from 'react-router-dom';
 import './style.css';
 
 export class Login extends Component {
@@ -11,8 +11,7 @@ export class Login extends Component {
     super();
     this.state = {
       email: '',
-      password: '',
-      isLoggedIn: false
+      password: ''
     };
   }
 
@@ -32,6 +31,7 @@ export class Login extends Component {
   }
 
   render() {
+
     const { email, password } = this.state;
     return (
       <form className='user-login' onSubmit={this.handleSubmit}>
