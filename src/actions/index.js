@@ -8,6 +8,11 @@ export const addFavorite = (movie) => ({
   movie
 });
 
+export const removeFavorite = (movie_id) => ({
+  type: 'REMOVE_FAVORITE',
+  movie_id
+});
+
 export const setActiveUser = ({ id, name }) => ({
   type: 'SET_ACTIVE_USER',
   id,
