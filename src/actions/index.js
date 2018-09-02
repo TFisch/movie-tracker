@@ -23,3 +23,7 @@ export const setUserFavorites = (favorites) => ({
   type: 'SET_USER_FAVORITES',
   favorites
 });
+
+export const resetTheStore = () => ({
+  type: 'RESET_THE_STORE'
+});
