@@ -4,6 +4,7 @@ export const fetchMovies = async () => {
   const url = `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&primary_release_year=2018`;
   const response = await fetch(url);
   const data = await response.json();
+  console.log(data);
   return cleanMoviesData(data.results);
 };
 
@@ -61,7 +62,7 @@ export const postFavorites = async (movie) => {
   return await response.json();
 };
 
-export const getFavorites = async ({user_id}) => {
+export const getFavorites = async ({ user_id }) => {
   const url = `http://localhost:3000/api/users/${user_id}/favorites`;
   const response = await fetch(url);
   const usersFavorites = await response.json();
@@ -70,6 +71,6 @@ export const getFavorites = async ({user_id}) => {
 
 export const deleteFavorite = async (user_id, movie_id) => {
   const url = `http://localhost:3000/api/users/${user_id}/favorites/${movie_id}`;
-  const response = await fetch(url, {method: 'DELETE'});
+  const response = await fetch(url, { method: 'DELETE' });
   return response.json();
 };
