@@ -1,14 +1,37 @@
 import * as actions from '../actions';
 
-describe('actions', () => {
-  const mockMoviesData = [
-    { title: 'Good Will Hunting', poster_path: '/g4oih2nkfs/sdaf3klj.jpg', release_date: '1998-02-17' },
-    { title: 'Bourne Supremacy', poster_path: '/l1orojfjfs/sdaf3klj.jpg', release_date: '2001-03-22' },
-    { title: 'Legend of Bagger Vance', poster_path: '/g4qwepokfs/saf23lj.jpg', release_date: '2004-11-06' }
-  ];
-  const mockMovie = { title: 'Good Will Hunting', poster_path: '/g4oih2nkfs/sdaf3klj.jpg', release_date: '1998-02-17', movie_id: 299536 };
-  const mockMovieId = 299536;
-  const mockUser = { user_id: 1, name: 'Taylor' };
+describe('actions tests', () => {
+  let mockMoviesData;
+  let mockMovie;
+  let mockMovieId;
+  let mockUser;
+  beforeEach(() => {
+    mockMoviesData = [
+      {
+        title: 'Bourne Supremacy',
+        poster_path: '/l1orojfjfs/sdaf3klj.jpg',
+        release_date: '2001-03-22'
+      },
+      {
+        title: 'Legend of Bagger Vance',
+        poster_path: '/g4qwepokfs/saf23lj.jpg',
+        release_date: '2004-11-06'
+      }
+    ];
+
+    mockMovie = {
+      title: 'Good Will Hunting',
+      poster_path: '/g4oih2nkfs/sdaf3klj.jpg',
+      release_date: '1998-02-17',
+      movie_id: 299536
+    };
+
+    mockMovieId = 299536;
+    mockUser = {
+      user_id: 1,
+      name: 'Taylor'
+    };
+  });
 
   it('should return a object with type of ADD_MOVIES, with the movies', () => {
     const expectation = { type: 'ADD_MOVIES', movieData: mockMoviesData };
@@ -55,6 +78,3 @@ describe('actions', () => {
     expect(result).toEqual(expectation);
   });
 });
-
-
-
