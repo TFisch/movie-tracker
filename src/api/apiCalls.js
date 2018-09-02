@@ -71,19 +71,26 @@ export const postFavorites = async (movie) => {
     return await response.json();
   } catch (error) {
     throw new Error(error);
-
   }
 };
 
 export const getFavorites = async ({ user_id }) => {
-  const url = `http://localhost:3000/api/users/${user_id}/favorites`;
-  const response = await fetch(url);
-  const usersFavorites = await response.json();
-  return usersFavorites.data;
+  try {
+    const url = `http://localhost:3000/api/users/${user_id}/favorites`;
+    const response = await fetch(url);
+    const usersFavorites = await response.json();
+    return usersFavorites.data;
+  } catch (error) {
+    throw new Error(error);
+  }
 };
 
 export const deleteFavorite = async (user_id, movie_id) => {
-  const url = `http://localhost:3000/api/users/${user_id}/favorites/${movie_id}`;
-  const response = await fetch(url, { method: 'DELETE' });
-  return response.json();
+  try {
+    const url = `http://localhost:3000/api/users/${user_id}/favorites/${movie_id}`;
+    const response = await fetch(url, { method: 'DELETE' });
+    return response.json();
+  } catch (error) {
+    throw new Error(error);
+  }
 };
