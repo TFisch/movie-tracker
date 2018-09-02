@@ -39,3 +39,6 @@
   margin-top: .75em;
   cursor: pointer;
   width: 3em; }
+
+.favorited {
+  background: url("../../Images/like-red.svg") no-repeat; }
