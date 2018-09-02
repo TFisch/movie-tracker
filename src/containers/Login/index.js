@@ -25,8 +25,9 @@ export class Login extends Component {
   handleSubmit = async (event) => {
     event.preventDefault();
     const { setActiveUser, setUserFavorites } = this.props;
-    const user = await login(this.state);
-    if (user.name.length) {
+    const { email, password } = this.state;
+    if ( email.length && password.length ) {
+      const user = await login(this.state);
       const userFavorites = await getFavorites(user);
       setActiveUser(user);
       setUserFavorites(userFavorites);

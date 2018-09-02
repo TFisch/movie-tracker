@@ -25,8 +25,9 @@ export class SignUp extends Component {
 
   handleSubmit = async (event) => {
     event.preventDefault();
-    const initialUser = await signUp(this.state);
-    if (initialUser.name.length) {
+    const { userName, email, password } = this.state;
+    if (userName.length && email.length && password.length) {
+      const initialUser = await signUp(this.state);
       const user = { user_id: initialUser.id, name: initialUser.name };
       this.props.setActiveUser(user);
       this.setState({ userName: '', email: '', password: '', fireRedirect: true });
