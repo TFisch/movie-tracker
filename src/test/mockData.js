@@ -418,8 +418,28 @@ export const mockUserData = {
   }
 }
 
+export const mockEmail = 'tman2272@aol.com'
 
-// mockEmail
+export const mockPassword = 'password'
 
-// mockPassword
+export const mockNewEmail = 'MockNicholsen@Mock.com'
+export const mockNewUsername = 'Mock'
+
+export const mockUncleanMovies = [{
+  vote_count: 7458,
+  id: 299536,
+  video: false,
+  vote_average: 8.3,
+  title: 'Mock: The Movie',
+  popularity: 228.032,
+  poster_path: '/7WsyChQLEftFiDOVTGkv3hFpyyt.jpg',
+  original_language: 'en',
+  original_title: 'The Mockman Prophecy',
+  genre_ids: [12, 878, 14, 28],
+  backdrop_path: '/bOGkgRGdhrBYJSLpXaxhXVstddV.jpg',
+  adult: false,
+  overview: 'This movie is totally fake',
+  release_date: '2018-04-25'
+}]
+
 
