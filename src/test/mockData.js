@@ -411,6 +411,13 @@ export const mockFullData = {
   ]
 }
 
+export const mockUserData = {
+  userData: {
+    user_id: 1,
+    name: 'Taylor'
+  }
+}
+
 
 // mockEmail
 
