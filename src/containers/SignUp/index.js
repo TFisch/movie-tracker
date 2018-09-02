@@ -26,9 +26,13 @@ export class SignUp extends Component {
   handleSubmit = async (event) => {
     event.preventDefault();
     const initialUser = await signUp(this.state);
-    const user = { user_id: initialUser.id, name: initialUser.name };
-    this.props.setActiveUser(user);
-    this.setState({ userName: '', email: '', password: '', fireRedirect: true });
+    if (initialUser.name.length) {
+      const user = { user_id: initialUser.id, name: initialUser.name };
+      this.props.setActiveUser(user);
+      this.setState({ userName: '', email: '', password: '', fireRedirect: true });
+    } else {
+      alert('Please complete sign up information');
+    }
   }
 
   render() {

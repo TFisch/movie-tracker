@@ -24,11 +24,16 @@ export class Login extends Component {
 
   handleSubmit = async (event) => {
     event.preventDefault();
+    const { setActiveUser, setUserFavorites } = this.props;
     const user = await login(this.state);
-    this.props.setActiveUser(user);
-    const userFavorites = await getFavorites(user);
-    this.props.setUserFavorites(userFavorites);
-    this.setState({ userName: '', password: '', fireRedirect: true });
+    if (user.name.length) {
+      const userFavorites = await getFavorites(user);
+      setActiveUser(user);
+      setUserFavorites(userFavorites);
+      this.setState({ userName: '', password: '', fireRedirect: true });
+    } else {
+      alert('Please complete login information');
+    }
   }
 
   render() {
