@@ -25,6 +25,7 @@ export const cleanMoviesData = async (movies) => {
 };
 
 export const login = async ({ email, password }) => {
+  console.log('heelp')
   const url = 'http://localhost:3000/api/users';
   const response = await fetch(url, {
     method: 'POST',

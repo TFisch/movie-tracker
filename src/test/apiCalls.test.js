@@ -12,3 +12,13 @@ describe('fetchMovies', async () => {
     expect(window.fetch).toHaveBeenCalledWith(expected)
   })
 })
+
+describe('calls fetch with the correct data when logging in a user', async () => {
+  const expectedFetchBody = {
+    method: 'POST',
+    body: JSON.stringify({ mockEmail, mockPassword }),
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  }
+})
