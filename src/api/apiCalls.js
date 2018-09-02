@@ -7,7 +7,7 @@ export const fetchMovies = async () => {
     const data = await response.json();
     return cleanMoviesData(data.results);
   } catch (error) {
-    console.log("error", error)
+    throw new Error(error);
   }
 }
 
@@ -29,7 +29,7 @@ export const cleanMoviesData = async (movies) => {
       );
     });
   } catch (error) {
-    console.log('error', error);
+    throw new Error(error);
   }
 };
 
@@ -61,13 +61,18 @@ export const signUp = async ({ userName, email, password }) => {
 };
 
 export const postFavorites = async (movie) => {
-  const url = 'http://localhost:3000/api/users/favorites/new';
-  const response = await fetch(url, {
-    method: 'POST',
-    body: JSON.stringify(movie),
-    headers: { 'Content-Type': 'application/json' }
-  });
-  return await response.json();
+  try {
+    const url = 'http://localhost:3000/api/users/favorites/new';
+    const response = await fetch(url, {
+      method: 'POST',
+      body: JSON.stringify(movie),
+      headers: { 'Content-Type': 'application/json' }
+    });
+    return await response.json();
+  } catch (error) {
+    throw new Error(error);
+
+  }
 };
 
 export const getFavorites = async ({ user_id }) => {
