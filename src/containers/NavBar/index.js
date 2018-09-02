@@ -15,18 +15,21 @@ const NavBar = (props) => {
     </div>
   );
 
-  const loggedInNav = () => (
-    <div>
-      <h1>{`Welcome! ${name}`}</h1>
-      <Link to={`/${name}/favorites`}><button className='button'>Favorites</button></Link>
-      <Link to='/'><button onClick={resetTheStore} className='button'>Logout</button></Link>
-    </div>
-  );
+  const loggedInNav = () => {
+    const userWelcome = name || '';
+    return (
+      <div>
+        <h1>{`Welcome! ${userWelcome}`}</h1>
+        <Link to={`/${name}/favorites`}><button className='button'>Favorites</button></Link>
+        <Link to='/'><button onClick={resetTheStore} className='button'>Logout</button></Link>
+      </div>
+    );
+  };
 
   return (
     <div className='nav-bar'>
       <Route exact path='/' component={noLoggedInNav}></Route>
-      <Route path={`/${name}`} component={loggedInNav}></Route>
+      <Route path='/:user' component={loggedInNav}></Route>
     </div>
   );
 };
