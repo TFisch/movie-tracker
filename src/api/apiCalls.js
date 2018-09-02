@@ -34,15 +34,19 @@ export const cleanMoviesData = async (movies) => {
 };
 
 export const login = async ({ email, password }) => {
-  const url = 'http://localhost:3000/api/users';
-  const response = await fetch(url, {
-    method: 'POST',
-    body: JSON.stringify({ email, password }),
-    headers: { 'Content-Type': 'application/json' }
-  });
-  const user = await response.json();
-  const { id, name } = user.data;
-  return { user_id: id, name };
+  try {
+    const url = 'http://localhost:3000/api/users';
+    const response = await fetch(url, {
+      method: 'POST',
+      body: JSON.stringify({ email, password }),
+      headers: { 'Content-Type': 'application/json' }
+    });
+    const user = await response.json();
+    const { id, name } = user.data;
+    return { user_id: id, name };
+  } catch (error) {
+    throw new Error(error);
+  }
 };
 
 export const signUp = async ({ userName, email, password }) => {
