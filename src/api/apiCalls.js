@@ -11,7 +11,6 @@ export const fetchMovies = async () => {
   }
 }
 
-
 export const cleanMoviesData = async (movies) => {
   try {
     return movies.map(movie => {
@@ -42,6 +41,7 @@ export const login = async ({ email, password }) => {
       headers: { 'Content-Type': 'application/json' }
     });
     const user = await response.json();
+    console.log(user);
     const { id, name } = user.data;
     return { user_id: id, name };
   } catch (error) {
