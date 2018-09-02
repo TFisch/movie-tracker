@@ -409,22 +409,19 @@ export const mockFullData = {
       "release_date": "2018-10-19"
     }
   ]
-}
+};
 
 export const mockUserData = {
   userData: {
     user_id: 1,
     name: 'Taylor'
   }
-}
+};
 
-export const mockEmail = 'tman2272@aol.com'
-
-export const mockPassword = 'password'
-
-export const mockNewEmail = 'MockNicholsen@Mock.com'
-export const mockNewUsername = 'Mock'
-
+export const mockEmail = 'tman2272@aol.com';
+export const mockPassword = 'password';
+export const mockNewEmail = 'MockNicholsen@Mock.com';
+export const mockNewUsername = 'Mock';
 export const mockUncleanMovies = [{
   vote_count: 7458,
   id: 299536,
@@ -440,6 +437,4 @@ export const mockUncleanMovies = [{
   adult: false,
   overview: 'This movie is totally fake',
   release_date: '2018-04-25'
-}]
-
-
+}];
