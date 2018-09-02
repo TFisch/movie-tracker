@@ -51,8 +51,8 @@ const Card = (props) => {
   return (
     <div className='card'>
       <div className='favorite-wrapper'>
-        {/* <Route exact path='/' component={noUserFavoriteButton}></Route> */}
-        <Route path='/' component={userFavoriteButton}></Route>
+        <Route exact path='/' component={noUserFavoriteButton}></Route>
+        <Route path='/:user' component={userFavoriteButton}></Route>
         <StarRatings
           starDimension={'1em'}
           rating={rating}
