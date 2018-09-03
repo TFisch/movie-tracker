@@ -31,7 +31,18 @@ ShallowWrapper {
 />,
         <Route
           component={[Function]}
-          path="/:user"
+          exact={true}
+          path="/login"
+/>,
+        <Route
+          component={[Function]}
+          exact={true}
+          path="/signup"
+/>,
+        <Route
+          component={[Function]}
+          exact={true}
+          path="/Taylor"
 />,
       ],
       "className": "nav-bar",
@@ -57,7 +68,34 @@ ShallowWrapper {
         "nodeType": "class",
         "props": Object {
           "component": [Function],
-          "path": "/:user",
+          "exact": true,
+          "path": "/login",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "component": [Function],
+          "exact": true,
+          "path": "/signup",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "component": [Function],
+          "exact": true,
+          "path": "/Taylor",
         },
         "ref": null,
         "rendered": null,
@@ -80,7 +118,18 @@ ShallowWrapper {
 />,
           <Route
             component={[Function]}
-            path="/:user"
+            exact={true}
+            path="/login"
+/>,
+          <Route
+            component={[Function]}
+            exact={true}
+            path="/signup"
+/>,
+          <Route
+            component={[Function]}
+            exact={true}
+            path="/Taylor"
 />,
         ],
         "className": "nav-bar",
@@ -106,7 +155,34 @@ ShallowWrapper {
           "nodeType": "class",
           "props": Object {
             "component": [Function],
-            "path": "/:user",
+            "exact": true,
+            "path": "/login",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "component": [Function],
+            "exact": true,
+            "path": "/signup",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "component": [Function],
+            "exact": true,
+            "path": "/Taylor",
           },
           "ref": null,
           "rendered": null,
