@@ -25,6 +25,11 @@ describe('Login tests', () => {
     expect(wrapper.state('fireRedirect')).toEqual(false);
   })
 
+  it('should change state when email input is changed', () => {
+    const mockEvent = { target: { value: 'mock@mock.com', name: 'email' }, preventDefault: jest.fn() }
+    wrapper.instance().handleChange(mockEvent);
+    expect(wrapper.state('email')).toEqual(mockEvent.target.value)
+  })
 
   describe('handleSubmit', () => {
     let wrapper;
