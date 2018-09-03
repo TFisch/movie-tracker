@@ -1,6 +1,6 @@
 import React from 'react';
 import { fetchMovies, login, signUp, cleanMoviesData } from '../api/apiCalls';
-import { mockFullData, mockEmail, mockPassword, mockUncleanMovies, mockNewEmail, mockNewUsername, mockResolvedUserData } from '../test/mockData';
+import { mockFullData, mockEmail, mockPassword, mockUncleanMovies, mockNewEmail, mockNewUsername, mockResolvedUserData, mockUserData } from '../test/mockData';
 
 describe('fetchMovies', async () => {
   it('should fetch the intial movie data', () => {
@@ -39,16 +39,21 @@ describe('signup', async () => {
       body: JSON.stringify({ name: mockNewUsername, email: mockNewEmail, password: mockPassword }),
       headers: { 'Content-Type': 'application/json' }
     }
-    window.fetch = jest.fn().mockImplementation(() => Promise.resolve({ status: 200, json: () => Promise.resolve() }))
+    window.fetch = jest.fn().mockImplementation(() => Promise.resolve({ status: 200, json: () => Promise.resolve(mockUserData) }))
   });
+
+  it.skip('should return a success message when entering valid user data', async () => {
+    const result = await signUp(mockNewUsername, mockEmail, mockPassword)
+    expect(window.fetch).toHaveBeenCalledWith(url, mockResponse)
+  })
 });
 
 describe('postFavorites', async () => {
-  it.skip('should invoke fetch with the correct parameters', () => {
+  it.skip('should invoke fetch with the correct parameters', async () => {
     window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
       json: () => Promise.resolve(mockFullData)
     }));
-    signUp(mockNewUsername, mockEmail, mockPassword);
+    await signUp(mockNewUsername, mockEmail, mockPassword);
     expect(window.fetch).toHaveBeenCalledWith(mockNewEmail);
   });
 });

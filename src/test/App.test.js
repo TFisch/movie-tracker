@@ -16,21 +16,21 @@ describe('APP tests', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
-  // describe('fetchOpeningMovies', async () => {
-  //   it.skip('should display the opening movies on load', async () => {
-  //     await wrapper.instance().fetchOpeningMovies();
+  describe('fetchOpeningMovies', async () => {
+    it.skip('should display the opening movies on load', async () => {
+      await wrapper.instance().fetchOpeningMovies();
 
-  //   });
-  // })
+    });
+  })
 
-  // describe('mapDispatchToProps', () => {
-  //   it.skip('calls dispatch with the addMovies action when fetchOpeningMovies is called', async () => {
-  //     const mockDispatch = jest.fn()
-  //     const mockMovieData = mockCleanMovieData
-  //     const mappedProps = mapDispatchToProps(mockDispatch);
-  //     const expected = mappedProps.addMovies(mockCleanMovieData);
-  //     const result = mockCleanMovieData
-  //     expect(mappedProps).toHaveBeenCalledWith(expected);
-  //   })
-  // })
+  describe('mapDispatchToProps', () => {
+    it.skip('calls dispatch with the addMovies action when fetchOpeningMovies is called', async () => {
+      const mockDispatch = jest.fn()
+      const mockMovieData = mockCleanMovieData
+      const mappedProps = mapDispatchToProps(mockDispatch);
+      const expected = mappedProps.addMovies(mockCleanMovieData);
+      const result = mockCleanMovieData
+      expect(mappedProps).toHaveBeenCalledWith(expected);
+    })
+  })
 });
