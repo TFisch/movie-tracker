@@ -29,8 +29,8 @@
 }
 
 .log-button {
-  color: $grey;
-  width: 5em;
+  @include button();
+  width: 5.5em;
 }
 
 .favorites-button {

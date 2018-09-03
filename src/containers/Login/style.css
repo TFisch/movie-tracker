@@ -23,8 +23,16 @@
   font-weight: bold; }
 
 .log-button {
-  color: #2c3531;
-  width: 5em; }
+  width: 5em;
+  font-size: 1em;
+  padding: .2em .5em;
+  border-radius: 1em;
+  border: 0px;
+  background-color: #ffcb9a;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  color: #116466;
+  width: 5.5em; }
 
 .favorites-button {
   width: 5em;
