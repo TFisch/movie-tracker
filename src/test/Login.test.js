@@ -31,6 +31,14 @@ describe('Login tests', () => {
     expect(wrapper.state('email')).toEqual(mockEvent.target.value)
   })
 
+  it('should change state when password input is changed', () => {
+    const mockEvent = { target: { password: 'mockpassword', name: 'password' }, preventDefault: jest.fn() }
+    wrapper.instance().handleChange(mockEvent);
+    expect(wrapper.state('password')).toEqual(mockEvent.target.value)
+  })
+
+
+
   describe('handleSubmit', () => {
     let wrapper;
     let mockEvent;
