@@ -44,7 +44,7 @@ export const login = async ({ email, password }) => {
     const { id, name } = user.data;
     return { user_id: id, name };
   } catch (error) {
-    throw new Error(error);
+    throw (alert("Invalid login information! " + error))
   }
 };
 

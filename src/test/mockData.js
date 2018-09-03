@@ -470,6 +470,12 @@ export const mockUserData = {
   name: 'Taylor'
 };
 
+export const mockResolvedUserData = {
+  status: 'success',
+  message: 'New user created',
+  id: 4
+}
+
 export const mockMovieId = 299536;
 export const mockEmail = 'tman2272@aol.com';
 export const mockPassword = 'password';

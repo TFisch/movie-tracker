@@ -37,7 +37,7 @@ export class App extends Component {
   }
 }
 
-const mapDispatchToProps = (dispatch) => ({
+export const mapDispatchToProps = (dispatch) => ({
   addMovies: (moviesData) => dispatch(addMovies(moviesData))
 });
 
