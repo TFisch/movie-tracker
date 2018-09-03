@@ -26,7 +26,7 @@ export class Login extends Component {
     event.preventDefault();
     const { setActiveUser, setUserFavorites } = this.props;
     const { email, password } = this.state;
-    if ( email.length && password.length ) {
+    if (email.length && password.length) {
       const user = await login(this.state);
       const userFavorites = await getFavorites(user);
       setActiveUser(user);
@@ -43,10 +43,10 @@ export class Login extends Component {
     return (
       <div>
         <Link to='/signup'>
-          <button className="log-button input-field">Sign UP</button>
+          <button className="log-button">Sign UP</button>
         </Link>
         <Link to='/'>
-          <button className="log-button input-field">Home</button>
+          <button className="log-button send-home">Home</button>
         </Link>
         <form className='user-login' onSubmit={this.handleSubmit}>
           <h2 className='log-header'>Log In</h2>
@@ -66,10 +66,10 @@ export class Login extends Component {
             value={password}
             onChange={this.handleChange}
           />
-          <button className="log-button input-field">Log In</button>
+          <button className="log-button">Log In</button>
         </form>
         {fireRedirect && (
-          <Redirect to={`/${name}`}/>
+          <Redirect to={`/${name}`} />
         )}
       </div>
     );
