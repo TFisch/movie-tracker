@@ -43,10 +43,10 @@ export class Login extends Component {
     return (
       <div>
         <Link to='/signup'>
-          <button className="log-button input-field">Sign UP</button>
+          <button className="log-button">Sign UP</button>
         </Link>
         <Link to='/'>
-          <button className="log-button input-field">Home</button>
+          <button className="log-button send-home">Home</button>
         </Link>
         <form className='user-login' onSubmit={this.handleSubmit}>
           <h2 className='log-header'>Log In</h2>
