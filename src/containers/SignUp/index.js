@@ -72,10 +72,10 @@ export class SignUp extends Component {
             value={password}
             onChange={this.handleChange}
           />
-          <button className="log-button input-field">Sign up</button>
+          <button className="signup-button">Sign up</button>
         </form>
         {fireRedirect && (
-          <Redirect to={`/${name}`}/>
+          <Redirect to={`/${name}`} />
         )}
       </div>
     );
