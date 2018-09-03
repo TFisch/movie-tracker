@@ -1,6 +1,6 @@
 import React from 'react';
 import { fetchMovies, login, signUp, cleanMoviesData } from '../api/apiCalls';
-import { mockFullData, mockEmail, mockPassword, mockUncleanMovies, mockNewEmail, mockNewUsername } from '../test/mockData';
+import { mockFullData, mockEmail, mockPassword, mockUncleanMovies, mockNewEmail, mockNewUsername, mockResolvedUserData } from '../test/mockData';
 
 describe('fetchMovies', async () => {
   it('should fetch the intial movie data', () => {
@@ -39,7 +39,7 @@ describe('signup', async () => {
       body: JSON.stringify({ name: mockNewUsername, email: mockNewEmail, password: mockPassword }),
       headers: { 'Content-Type': 'application/json' }
     }
-
+    window.fetch = jest.fn().mockImplementation(() => Promise.resolve({ status: 200, json: () => Promise.resolve() }))
   });
 });
 
