@@ -10,8 +10,8 @@ const NavBar = (props) => {
   const { name } = props.user;
   const noLoggedInNav = () => (
     <div>
-      <Link to='/login'><button className='button'>Login</button></Link>
-      <Link to='/signup'><button className='button'>SignUp</button></Link>
+      <Link to='/login'><button className='login'>Login</button></Link>
+      <Link to='/signup'><button className='signup'>SignUp</button></Link>
     </div>
   );
 
