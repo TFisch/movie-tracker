@@ -28,49 +28,18 @@ describe('cleanMoviesData', async () => {
   });
 });
 
-// describe.skip('calls fetch with the correct data when logging in a user', async () => {
-//   window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
-//     json: () => Promise.resolve(mockFullData)
-//   }));
-//   const expectedFetchBody = {
-//     method: 'POST',
-//     body: JSON.stringify({ mockEmail, mockPassword }),
-//     headers: {
-//       'Content-Type': 'application/json'
-//     }
-//   };
-//   await login(mockEmail, mockPassword);
-// });
-
 describe('signup', async () => {
+  let url;
+  let mockResponse;
+
   beforeEach(() => {
-    window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
-      json: () => Promise.resolve({
-        name: mockNewUsername, mockEmail, mockPassword
-      })
-    }));
-  });
+    url = 'http://localhost:3000/api/users/new'
+    mockResponse = {
+      method: 'POST',
+      body: JSON.stringify({ name: mockNewUsername, email: mockNewEmail, password: mockPassword }),
+      headers: { 'Content-Type': 'application/json' }
+    }
 
-  it.skip('fetch is called with the correct params', async () => {
-    const expected = [
-      'http://localhost:3000/api/users/new',
-      {
-        body: JSON.stringify({ name: mockNewUsername, mockEmail, mockPassword }),
-        headers: {
-          "Content-Type": "application/json"
-        },
-        method: "POST"
-      }
-    ];
-    await signUp(mockNewUsername, mockEmail, mockPassword);
-    expect(window.fetch).toHaveBeenCalledWith(...expected);
-  });
-
-  it.skip('should return an id and username when a new user is created', async () => {
-    const expected = {
-      "id": 'id', "name": 'name'
-    };
-    await expect(signUp(mockNewUsername, mockEmail, mockPassword)).resolves.toEqual(expected);
   });
 });
 
