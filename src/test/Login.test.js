@@ -32,12 +32,10 @@ describe('Login tests', () => {
   })
 
   it('should change state when password input is changed', () => {
-    const mockEvent = { target: { password: 'mockpassword', name: 'password' }, preventDefault: jest.fn() }
+    const mockEvent = { target: { value: 'mockpassword', name: 'password' }, preventDefault: jest.fn() }
     wrapper.instance().handleChange(mockEvent);
     expect(wrapper.state('password')).toEqual(mockEvent.target.value)
   })
-
-
 
   describe('handleSubmit', () => {
     let wrapper;
@@ -61,8 +59,8 @@ describe('Login tests', () => {
       );
     });
 
-    it.skip('should setActive user when recieving a valid email and password', () => {
-      wrapper.find('.user-login').simulate('submit', mockEvent)
+    it.skip('should setActive user when recieving a valid email and password', async () => {
+      await wrapper.find('.user-login').simulate('submit', mockEvent)
       expect().toHaveBeenCalled();
 
     })
