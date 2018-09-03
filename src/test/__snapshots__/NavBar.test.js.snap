@@ -32,17 +32,12 @@ ShallowWrapper {
         <Route
           component={[Function]}
           exact={true}
-          path="/login"
-/>,
-        <Route
-          component={[Function]}
-          exact={true}
-          path="/signup"
-/>,
-        <Route
-          component={[Function]}
-          exact={true}
           path="/Taylor"
+/>,
+        <Route
+          component={[Function]}
+          exact={true}
+          path="/Taylor/favorites"
 />,
       ],
       "className": "nav-bar",
@@ -69,33 +64,20 @@ ShallowWrapper {
         "props": Object {
           "component": [Function],
           "exact": true,
-          "path": "/login",
-        },
-        "ref": null,
-        "rendered": null,
-        "type": [Function],
-      },
-      Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "class",
-        "props": Object {
-          "component": [Function],
-          "exact": true,
-          "path": "/signup",
-        },
-        "ref": null,
-        "rendered": null,
-        "type": [Function],
-      },
-      Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "class",
-        "props": Object {
-          "component": [Function],
-          "exact": true,
           "path": "/Taylor",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "component": [Function],
+          "exact": true,
+          "path": "/Taylor/favorites",
         },
         "ref": null,
         "rendered": null,
@@ -119,17 +101,12 @@ ShallowWrapper {
           <Route
             component={[Function]}
             exact={true}
-            path="/login"
-/>,
-          <Route
-            component={[Function]}
-            exact={true}
-            path="/signup"
-/>,
-          <Route
-            component={[Function]}
-            exact={true}
             path="/Taylor"
+/>,
+          <Route
+            component={[Function]}
+            exact={true}
+            path="/Taylor/favorites"
 />,
         ],
         "className": "nav-bar",
@@ -156,33 +133,20 @@ ShallowWrapper {
           "props": Object {
             "component": [Function],
             "exact": true,
-            "path": "/login",
-          },
-          "ref": null,
-          "rendered": null,
-          "type": [Function],
-        },
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "class",
-          "props": Object {
-            "component": [Function],
-            "exact": true,
-            "path": "/signup",
-          },
-          "ref": null,
-          "rendered": null,
-          "type": [Function],
-        },
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "class",
-          "props": Object {
-            "component": [Function],
-            "exact": true,
             "path": "/Taylor",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "component": [Function],
+            "exact": true,
+            "path": "/Taylor/favorites",
           },
           "ref": null,
           "rendered": null,
