@@ -20,8 +20,8 @@ const NavBar = (props) => {
     return (
       <div>
         <h1>{`Welcome! ${userWelcome}`}</h1>
-        <Link to={`/${name}/favorites`}><button className='button'>Favorites</button></Link>
-        <Link to='/'><button onClick={resetTheStore} className='button'>Logout</button></Link>
+        <Link to={`/${name}/favorites`}><button className='favorites-button'>Favorites</button></Link>
+        <Link to='/'><button onClick={resetTheStore} className='logout-button'>Logout</button></Link>
       </div>
     );
   };

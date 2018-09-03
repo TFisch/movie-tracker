@@ -1,4 +1,6 @@
 @import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+
 
 .log-header {
   color: $gold;
@@ -30,4 +32,14 @@
 .log-button {
   color: $grey;
   width: 5em;
+}
+
+.favorites-button {
+  @include button();
+  width: 5.5em;
+}
+
+.logout-button {
+  @include button();
+  margin-left: 1em;
 }
