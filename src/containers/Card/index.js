@@ -8,7 +8,7 @@ import { postFavorites, deleteFavorite } from '../../api/apiCalls';
 import classNames from 'classnames/bind';
 import './style.css';
 
-const Card = (props) => {
+export const Card = (props) => {
   const { movie, user, favorites, removeFavorite, addFavorite } = props;
   const { poster_path, vote_average, movie_id } = movie;
   const rating = vote_average / 2;

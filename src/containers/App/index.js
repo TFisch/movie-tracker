@@ -11,7 +11,7 @@ import SignUp from '../../containers/SignUp';
 import { Header } from '../../components/Header';
 import './style.css';
 
-class App extends Component {
+export class App extends Component {
   componentDidMount = () => {
     this.fetchOpeningMovies();
   }

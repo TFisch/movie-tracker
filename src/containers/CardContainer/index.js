@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import Card from '../../containers/Card';
 import './style.css';
 
-const CardContainer = (props) => {
+export const CardContainer = (props) => {
   const displayMovies = props.movies.map(movie => (
     <Card 
       key={Date.now() * Math.random()} 

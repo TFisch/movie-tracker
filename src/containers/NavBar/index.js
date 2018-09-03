@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import { resetTheStore } from '../../actions';
 import './style.css';
 
-const NavBar = (props) => {
+export const NavBar = (props) => {
   const { resetTheStore } = props;
   const { name } = props.user;
   const noLoggedInNav = () => (
