@@ -29,7 +29,9 @@ export const NavBar = (props) => {
   return (
     <div className='nav-bar'>
       <Route exact path='/' component={noLoggedInNav}></Route>
-      <Route path='/:user' component={loggedInNav}></Route>
+      <Route exact path='/login' component={noLoggedInNav}></Route>
+      <Route exact path='/signup' component={noLoggedInNav}></Route>
+      <Route exact path={`/${name}`} component={loggedInNav}></Route>
     </div>
   );
 };
