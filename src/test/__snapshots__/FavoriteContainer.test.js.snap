@@ -75,7 +75,7 @@ ShallowWrapper {
     "rendered": Array [
       Object {
         "instance": null,
-        "key": "1092617075155.0662",
+        "key": "1063547981744.4521",
         "nodeType": "class",
         "props": Object {
           "movie": Object {
@@ -146,11 +146,7 @@ ShallowWrapper {
       "rendered": Array [
         Object {
           "instance": null,
-<<<<<<< HEAD
-          "key": "66848640694.26683",
-=======
-          "key": "1092617075155.0662",
->>>>>>> Test mapDispatchToProps on App
+          "key": "1063547981744.4521",
           "nodeType": "class",
           "props": Object {
             "movie": Object {
