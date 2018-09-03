@@ -42,12 +42,6 @@ export class Login extends Component {
     const { email, password, fireRedirect } = this.state;
     return (
       <div>
-        <Link to='/signup'>
-          <button className="log-button">Sign UP</button>
-        </Link>
-        <Link to='/'>
-          <button className="log-button send-home">Home</button>
-        </Link>
         <form className='user-login' onSubmit={this.handleSubmit}>
           <h2 className='log-header'>Log In</h2>
           <input
@@ -68,6 +62,12 @@ export class Login extends Component {
           />
           <button className="log-button">Log In</button>
         </form>
+        <Link to='/signup'>
+          <button className="log-button">Sign UP</button>
+        </Link>
+        <Link to='/'>
+          <button className="log-button send-home">Home</button>
+        </Link>
         {fireRedirect && (
           <Redirect to={`/${name}`} />
         )}

@@ -1,15 +1,15 @@
 import React from 'react';
-import { NavBar } from '../containers/NavBar';
+import { FavoriteContainer } from '../containers/FavoriteContainer';
 import { shallow } from 'enzyme';
 import * as mockData from '../test/mockData';
 
-describe('NavBar tests', () => {
+describe('FavoriteContainer tests', () => {
   let wrapper;
-  const { mockUserData } = mockData;
+  const { mockUncleanMovies } = mockData;
   beforeEach(() => {
     wrapper = shallow( 
-      <NavBar 
-        user={mockUserData}
+      <FavoriteContainer 
+        userFavorites={mockUncleanMovies}
       /> 
     );
   });

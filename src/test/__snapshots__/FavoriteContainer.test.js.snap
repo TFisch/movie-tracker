@@ -1,0 +1,203 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FavoriteContainer tests renders the Card with the correct props 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Unknown
+    userFavorites={
+        Array [
+            Object {
+              "adult": false,
+              "backdrop_path": "/bOGkgRGdhrBYJSLpXaxhXVstddV.jpg",
+              "genre_ids": Array [
+                12,
+                878,
+                14,
+                28,
+              ],
+              "id": 299536,
+              "original_language": "en",
+              "original_title": "The Mockman Prophecy",
+              "overview": "This movie is totally fake",
+              "popularity": 228.032,
+              "poster_path": "/7WsyChQLEftFiDOVTGkv3hFpyyt.jpg",
+              "release_date": "2018-04-25",
+              "title": "Mock: The Movie",
+              "video": false,
+              "vote_average": 8.3,
+              "vote_count": 7458,
+            },
+          ]
+    }
+/>,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <Connect(Component)
+          movie={
+                    Object {
+                              "adult": false,
+                              "backdrop_path": "/bOGkgRGdhrBYJSLpXaxhXVstddV.jpg",
+                              "genre_ids": Array [
+                                12,
+                                878,
+                                14,
+                                28,
+                              ],
+                              "id": 299536,
+                              "original_language": "en",
+                              "original_title": "The Mockman Prophecy",
+                              "overview": "This movie is totally fake",
+                              "popularity": 228.032,
+                              "poster_path": "/7WsyChQLEftFiDOVTGkv3hFpyyt.jpg",
+                              "release_date": "2018-04-25",
+                              "title": "Mock: The Movie",
+                              "video": false,
+                              "vote_average": 8.3,
+                              "vote_count": 7458,
+                            }
+          }
+/>,
+      ],
+      "className": "card-container",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": "443778975166.31976",
+        "nodeType": "class",
+        "props": Object {
+          "movie": Object {
+            "adult": false,
+            "backdrop_path": "/bOGkgRGdhrBYJSLpXaxhXVstddV.jpg",
+            "genre_ids": Array [
+              12,
+              878,
+              14,
+              28,
+            ],
+            "id": 299536,
+            "original_language": "en",
+            "original_title": "The Mockman Prophecy",
+            "overview": "This movie is totally fake",
+            "popularity": 228.032,
+            "poster_path": "/7WsyChQLEftFiDOVTGkv3hFpyyt.jpg",
+            "release_date": "2018-04-25",
+            "title": "Mock: The Movie",
+            "video": false,
+            "vote_average": 8.3,
+            "vote_count": 7458,
+          },
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <Connect(Component)
+            movie={
+                        Object {
+                                    "adult": false,
+                                    "backdrop_path": "/bOGkgRGdhrBYJSLpXaxhXVstddV.jpg",
+                                    "genre_ids": Array [
+                                      12,
+                                      878,
+                                      14,
+                                      28,
+                                    ],
+                                    "id": 299536,
+                                    "original_language": "en",
+                                    "original_title": "The Mockman Prophecy",
+                                    "overview": "This movie is totally fake",
+                                    "popularity": 228.032,
+                                    "poster_path": "/7WsyChQLEftFiDOVTGkv3hFpyyt.jpg",
+                                    "release_date": "2018-04-25",
+                                    "title": "Mock: The Movie",
+                                    "video": false,
+                                    "vote_average": 8.3,
+                                    "vote_count": 7458,
+                                  }
+            }
+/>,
+        ],
+        "className": "card-container",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": "443778975166.31976",
+          "nodeType": "class",
+          "props": Object {
+            "movie": Object {
+              "adult": false,
+              "backdrop_path": "/bOGkgRGdhrBYJSLpXaxhXVstddV.jpg",
+              "genre_ids": Array [
+                12,
+                878,
+                14,
+                28,
+              ],
+              "id": 299536,
+              "original_language": "en",
+              "original_title": "The Mockman Prophecy",
+              "overview": "This movie is totally fake",
+              "popularity": 228.032,
+              "poster_path": "/7WsyChQLEftFiDOVTGkv3hFpyyt.jpg",
+              "release_date": "2018-04-25",
+              "title": "Mock: The Movie",
+              "video": false,
+              "vote_average": 8.3,
+              "vote_count": 7458,
+            },
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+    "attachTo": undefined,
+    "disableLifecycleMethods": true,
+    "hydrateIn": undefined,
+  },
+}
+`;

@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import { resetTheStore } from '../../actions';
 import './style.css';
 
-const NavBar = (props) => {
+export const NavBar = (props) => {
   const { resetTheStore } = props;
   const { name } = props.user;
   const noLoggedInNav = () => (
@@ -20,8 +20,27 @@ const NavBar = (props) => {
     return (
       <div>
         <h1>{`Welcome! ${userWelcome}`}</h1>
-        <Link to={`/${name}/favorites`}><button className='favorites-button'>Favorites</button></Link>
-        <Link to='/'><button onClick={resetTheStore} className='logout-button'>Logout</button></Link>
+        <Link to={`/${name}/favorites`}>
+          <button className='favorites-button'>Favorites</button>
+        </Link>
+        <Link to='/'>
+          <button onClick={resetTheStore} className='logout-button'>Logout</button>
+        </Link>
+      </div>
+    );
+  };
+
+  const favoritesPage = () => {
+    const userWelcome = name || '';
+    return (
+      <div>
+        <h1>{`Welcome! ${userWelcome}`}</h1>
+        <Link to={`/${name}`}>
+          <button className='favorites-button'>Home</button>
+        </Link>
+        <Link to='/'>
+          <button onClick={resetTheStore} className='logout-button'>Logout</button>
+        </Link>
       </div>
     );
   };
@@ -29,7 +48,8 @@ const NavBar = (props) => {
   return (
     <div className='nav-bar'>
       <Route exact path='/' component={noLoggedInNav}></Route>
-      <Route path='/:user' component={loggedInNav}></Route>
+      <Route exact path={`/${name}`} component={loggedInNav}></Route>
+      <Route exact path={`/${name}/favorites`} component={favoritesPage}></Route>
     </div>
   );
 };
