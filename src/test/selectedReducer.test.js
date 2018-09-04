@@ -13,7 +13,7 @@ describe('selectedReducer', () => {
 
   it('should return an empty object if the same movie is selected', () => {
     const expected = {};
-    selectedReducer(mockSelectedMovie, manageSelectedMovie(mockSelectedMovie))
+    selectedReducer(mockSelectedMovie, manageSelectedMovie(mockSelectedMovie));
     const result = selectedReducer(undefined, {});
     expect(result).toEqual(expected);
   });

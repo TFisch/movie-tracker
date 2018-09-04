@@ -1,6 +1,6 @@
 import React from 'react';
 import { mapStateToProps, SelectedContainer } from '../containers/SelectedContainer';
-import { mockSelectedMovie } from '../test/mockData'
+import { mockSelectedMovie } from '../test/mockData';
 import { shallow } from 'enzyme';
 
 describe('FavoriteContainer tests', () => {
