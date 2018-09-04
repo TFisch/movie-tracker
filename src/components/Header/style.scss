@@ -1,7 +1,6 @@
 @import '../../styles/variables.scss';
 @import '../../styles/mixins.scss';
 
-
 .header {
   background-color: $turquoise;
   border-bottom: 1px solid $gold;
@@ -19,9 +18,10 @@
 .title {
   color: $gold;
   font-family: $title-font;
+  align-self: center;
   font-size: 3.5em;
-  margin: .5em 0;
   text-shadow: 2.5px 2.5px black;
+  margin: 0;
 }
 
 .home-redirect {
@@ -32,10 +32,4 @@
 .account-redirect {
   @include text-link;
   margin-left: 1em;
-}
-
-.button-wrap {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
 }

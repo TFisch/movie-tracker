@@ -53,4 +53,13 @@ describe('actions tests', () => {
     const result = actions.resetTheStore();
     expect(result).toEqual(expectation);
   });
+
+  it('should return a object with type of MANAGE_SELECTED_MOVIE', () => {
+    const expectation = {
+      type: 'MANAGE_SELECTED_MOVIE',
+      movie: mockCleanMovieData
+    };
+    const result = actions.manageSelectedMovie(mockCleanMovieData);
+    expect(result).toEqual(expectation);
+  });
 });

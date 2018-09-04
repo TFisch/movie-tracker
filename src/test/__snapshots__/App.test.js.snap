@@ -37,6 +37,10 @@ ShallowWrapper {
         />
         <Route
                 component={[Function]}
+                path="/"
+        />
+        <Route
+                component={[Function]}
                 exact={true}
                 path="/"
         />
@@ -72,6 +76,10 @@ ShallowWrapper {
             component={[Function]}
             exact={true}
             path="/signup"
+/>,
+          <Route
+            component={[Function]}
+            path="/"
 />,
           <Route
             component={[Function]}
@@ -126,6 +134,18 @@ ShallowWrapper {
             "component": [Function],
             "exact": true,
             "path": "/signup",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "component": [Function],
+            "path": "/",
           },
           "ref": null,
           "rendered": null,
@@ -200,6 +220,10 @@ ShallowWrapper {
           />
           <Route
                     component={[Function]}
+                    path="/"
+          />
+          <Route
+                    component={[Function]}
                     exact={true}
                     path="/"
           />
@@ -235,6 +259,10 @@ ShallowWrapper {
               component={[Function]}
               exact={true}
               path="/signup"
+/>,
+            <Route
+              component={[Function]}
+              path="/"
 />,
             <Route
               component={[Function]}
@@ -289,6 +317,18 @@ ShallowWrapper {
               "component": [Function],
               "exact": true,
               "path": "/signup",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "component": [Function],
+              "path": "/",
             },
             "ref": null,
             "rendered": null,

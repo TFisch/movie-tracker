@@ -49,11 +49,7 @@
     color: black;
     cursor: pointer; }
 
-.button-wrap {
-  display: flex;
-  margin-right: 1.75em;
-  margin-top: 4.6em; }
-
 .welcome-text {
   text-shadow: 2.5px 2.5px black;
-  font-family: "Montserrat", sans-serif; }
+  font-family: "Montserrat", sans-serif;
+  margin: 0 0 .5em 0; }

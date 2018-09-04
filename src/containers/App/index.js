@@ -4,11 +4,12 @@ import PropTypes from 'prop-types';
 import { BrowserRouter, Route } from 'react-router-dom';
 import { addMovies } from '../../actions';
 import { fetchMovies } from '../../api/apiCalls';
-import CardContainer from '../CardContainer';
-import FavoriteContainer from '../FavoriteContainer';
+import { Header } from '../../components/Header';
 import Login from '../../containers/Login';
 import SignUp from '../../containers/SignUp';
-import { Header } from '../../components/Header';
+import CardContainer from '../CardContainer';
+import FavoriteContainer from '../FavoriteContainer';
+import SelectedContainer from '../SelectedContainer';
 import './style.css';
 
 export class App extends Component {
@@ -29,6 +30,7 @@ export class App extends Component {
           <Route path='/' component={Header} />
           <Route exact path='/login' component={Login} />
           <Route exact path='/signup' component={SignUp} />
+          <Route path='/' component={SelectedContainer} />
           <Route exact path='/' component={CardContainer} />
           <Route exact path='/:landingPage' component={CardContainer} />
           <Route exact path='/:user/favorites' component={FavoriteContainer} />

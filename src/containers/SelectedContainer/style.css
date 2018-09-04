@@ -1,0 +1,27 @@
+.selected-container {
+  margin: 1.5em 0;
+  display: flex;
+  border: 2px solid #ffcb9a;
+  background-color: #116466;
+  justify-content: space-between;
+  width: 60%;
+  font-family: "Bangers", cursive;
+  transition: 600ms; }
+
+.selected-container h1 {
+  color: #ffcb9a;
+  font-size: 3em;
+  text-shadow: 2.5px 2.5px black;
+  margin: 0; }
+
+.selected-container p {
+  margin: 0;
+  font-size: 1.2em; }
+
+.selected-movie-content {
+  margin: auto;
+  padding: 0 1em; }
+
+.selected-wrapper {
+  display: flex;
+  justify-content: center; }

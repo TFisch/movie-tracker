@@ -75,7 +75,7 @@ ShallowWrapper {
     "rendered": Array [
       Object {
         "instance": null,
-        "key": undefined,
+        "key": "861511729059.894",
         "nodeType": "class",
         "props": Object {
           "movie": Object {
@@ -146,7 +146,7 @@ ShallowWrapper {
       "rendered": Array [
         Object {
           "instance": null,
-          "key": undefined,
+          "key": "861511729059.894",
           "nodeType": "class",
           "props": Object {
             "movie": Object {

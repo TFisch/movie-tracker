@@ -3,16 +3,14 @@
 
 .signup-button {
   @include button();
-  padding-bottom: 1em;
-}
-
-.button-wrap {
-  display: flex;
-  justify-content: space-evenly;
-  margin-bottom: 1em;
-  width: 100%;
 }
 
 .account-redirect {
   margin-left: 1em;
+}
+
+.button-wrap {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
 }
