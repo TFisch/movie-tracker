@@ -474,7 +474,7 @@ export const mockResolvedUserData = {
   status: 'success',
   message: 'New user created',
   id: 4
-}
+};
 
 export const mockMovieId = 299536;
 export const mockEmail = 'tman2272@aol.com';
@@ -489,4 +489,4 @@ export const mockSelectedMovie = {
   release_date: "2018-07-25",
   title: "Mission: Impossible - Fallout",
   vote_average: 7.3
-}
+};
