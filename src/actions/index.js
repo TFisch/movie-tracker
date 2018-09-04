@@ -27,3 +27,8 @@ export const setUserFavorites = (favorites) => ({
 export const resetTheStore = () => ({
   type: 'RESET_THE_STORE'
 });
+
+export const manageSelectedMovie = (movie) => ({
+  type: 'MANAGE_SELECTED_MOVIE',
+  movie
+});
