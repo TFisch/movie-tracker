@@ -1,13 +1,14 @@
 .header {
   background-color: #116466;
+  border-bottom: 1px solid #ffcb9a;
   display: flex;
   justify-content: space-between;
-  padding: 0 1em; }
+  padding: 1em 1em; }
 
 .title-container {
   display: flex;
   flex-grow: 1;
-  justify-content: center; }
+  justify-content: left; }
 
 .title {
   color: #ffcb9a;
@@ -15,3 +16,34 @@
   font-size: 3.5em;
   margin: .5em 0;
   text-shadow: 2.5px 2.5px black; }
+
+.home-redirect {
+  background: none;
+  border: none;
+  color: #ffcb9a;
+  font-size: .8em;
+  font-family: "Montserrat", sans-serif;
+  margin: 0;
+  padding: 0;
+  margin-right: 1em; }
+  .home-redirect:hover {
+    color: #d1e8e2;
+    cursor: pointer; }
+
+.account-redirect {
+  background: none;
+  border: none;
+  color: #ffcb9a;
+  font-size: .8em;
+  font-family: "Montserrat", sans-serif;
+  margin: 0;
+  padding: 0;
+  margin-left: 1em; }
+  .account-redirect:hover {
+    color: #d1e8e2;
+    cursor: pointer; }
+
+.button-wrap {
+  display: flex;
+  justify-content: space-between;
+  width: 100%; }

@@ -1,16 +1,19 @@
 @import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+
 
 .header {
   background-color: $turquoise;
+  border-bottom: 1px solid $gold;
   display: flex;
   justify-content: space-between;
-  padding: 0 1em;
+  padding: 1em 1em;
 }
 
 .title-container {
   display: flex;
   flex-grow: 1;
-  justify-content: center;
+  justify-content: left;
 }
 
 .title {
@@ -19,4 +22,20 @@
   font-size: 3.5em;
   margin: .5em 0;
   text-shadow: 2.5px 2.5px black;
+}
+
+.home-redirect {
+  @include text-link;
+  margin-right: 1em;
+}
+
+.account-redirect {
+  @include text-link;
+  margin-left: 1em;
+}
+
+.button-wrap {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
 }

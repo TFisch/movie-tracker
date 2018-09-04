@@ -9,7 +9,7 @@ export const NavBar = (props) => {
   const { resetTheStore } = props;
   const { name } = props.user;
   const noLoggedInNav = () => (
-    <div>
+    <div className="button-wrap">
       <Link to='/login'><button className='login'>Login</button></Link>
       <Link to='/signup'><button className='signup'>SignUp</button></Link>
     </div>
@@ -18,14 +18,16 @@ export const NavBar = (props) => {
   const loggedInNav = () => {
     const userWelcome = name || '';
     return (
-      <div>
-        <h1>{`Welcome! ${userWelcome}`}</h1>
+      <div className="nav-column">
+        <h1 className="welcome-text">{`Welcome! ${userWelcome}`}</h1>
+
         <Link to={`/${name}/favorites`}>
           <button className='favorites-button'>Favorites</button>
         </Link>
         <Link to='/'>
           <button onClick={resetTheStore} className='logout-button'>Logout</button>
         </Link>
+
       </div>
     );
   };

@@ -7,4 +7,17 @@
   background-color: #ffcb9a;
   font-family: "Montserrat", sans-serif;
   font-weight: 600;
-  color: #116466; }
+  color: #116466;
+  padding-bottom: 1em; }
+  .signup-button:hover {
+    color: black;
+    cursor: pointer; }
+
+.button-wrap {
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: 1em;
+  width: 100%; }
+
+.account-redirect {
+  margin-left: 1em; }

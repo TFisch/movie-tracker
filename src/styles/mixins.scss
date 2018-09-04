@@ -1,3 +1,4 @@
+
 @mixin button(){
   width: 5em;
   font-size: 1em;
@@ -8,4 +9,22 @@
   font-family: $sub-font;
   font-weight: 600;
   color: $turquoise;
+  &:hover { 
+    color: black;
+    cursor: pointer;
+  }
+}
+
+@mixin text-link() {
+  background:none;
+  border:none;
+  color: $gold;
+  font-size: .8em;
+  font-family: $sub-font;
+  margin:0;
+  padding:0;
+  &:hover { 
+    color: $light-blue;
+    cursor: pointer;
+  }
 }
