@@ -15,8 +15,8 @@ describe('Login tests', () => {
     wrapper = shallow(
       <Login
         user={mockUserData}
-        setActiveUser1={mockSetActiveUser}
-        mockSetUserFavorites={mockSetUserFavorites}
+        setActiveUser={mockSetActiveUser}
+        setUserFavorites={mockSetUserFavorites}
       />
     );
   });
@@ -56,9 +56,10 @@ describe('Login tests', () => {
   });
 
   describe('MapStateToProps', () => {
+    const { mockUserData } = mockData;
     it('should have a users data object in props', () => {
-      const mockState = {userData: {user_id: 7, name: 'BigFoot'}};
-      const expected = {user: {user_id: 7, name: 'BigFoot'}};
+      const mockState = {userData: mockUserData};
+      const expected = {user: mockUserData};
       const props = mapStateToProps(mockState);
       expect(props).toEqual(expected);
     });

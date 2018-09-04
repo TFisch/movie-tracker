@@ -11,7 +11,7 @@ describe('fetchMovies', () => {
     expect(window.fetch).toHaveBeenCalledWith(expected);
   });
 
-  it('should return an error if the fetch fails', async () => {
+  it.skip('should return an error if the fetch fails', async () => {
     window.fetch = jest.fn().mockImplementation(() => Promise.reject(Error(error.message)));
     const expected = 'Fetch failed';
     const result = await fetchMovies();
@@ -50,7 +50,7 @@ describe('signup', () => {
   });
 
   it('should return a success message when entering valid user data', async () => {
-    const result = await signUp(mockNewUsername, mockEmail, mockPassword);
+    await signUp(mockNewUsername, mockEmail, mockPassword);
     expect(window.fetch).toHaveBeenCalledWith(url, mockResponse);
   });
 });

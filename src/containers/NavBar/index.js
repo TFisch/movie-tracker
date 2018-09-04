@@ -54,11 +54,11 @@ export const NavBar = (props) => {
   );
 };
 
-const mapStateToProps = (state) => ({
+export const mapStateToProps = (state) => ({
   user: state.userData
 });
 
-const mapDispatchToProps = (dispatch) => ({
+export const mapDispatchToProps = (dispatch) => ({
   resetTheStore: () => dispatch(resetTheStore())
 });
 

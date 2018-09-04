@@ -4,6 +4,7 @@ exports[`App tests renders the Card with the correct props 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <Unknown
+    addFavorite={[Function]}
     favorites={
         Array [
             Object {
@@ -39,6 +40,7 @@ ShallowWrapper {
             "vote_average": 8.3,
           }
     }
+    removeFavorite={[Function]}
 />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],

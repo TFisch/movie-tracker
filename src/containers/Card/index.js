@@ -65,14 +65,13 @@ export const Card = (props) => {
   );
 };
 
-const mapStateToProps = (state) => ({
+export const mapStateToProps = (state) => ({
   user: state.userData,
   favorites: state.userFavorites
 });
 
-const mapDispatchToProps = (dispatch) => ({
+export const mapDispatchToProps = (dispatch) => ({
   addFavorite: (movie) => dispatch(addFavorite(movie)),
-  postFavorites: (movie) => dispatch(postFavorites(movie)),
   removeFavorite: (movie) => dispatch(removeFavorite(movie))
 });
 
