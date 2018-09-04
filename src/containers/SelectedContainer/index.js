@@ -13,8 +13,8 @@ export const SelectedContainer = (props) => {
     title
   } = props.selectedMovie;
 
-  const displayInfo = () => { 
-    if (poster_path){
+  const displayInfo = () => {
+    if (poster_path) {
       return (
         <div className='selected-container' onClick={() => manageSelectedMovie(selectedMovie)}>
           <img className='poster-image' src={poster_path} alt='movie data' />
