@@ -31,7 +31,8 @@ export const Card = (props) => {
     }
   );
 
-  const handleFavorite = () => {
+  const handleFavorite = (event) => {
+    event.stopPropagation();
     const { user_id } = user;
     const favoriteData = { ...movie, user_id };
     const existingMovieId = movie_id;
@@ -55,7 +56,7 @@ export const Card = (props) => {
   );
 
   const userFavoriteButton = () => (
-    <button className={buttonClass} onClick={() => handleFavorite()}>
+    <button className={buttonClass} onClick={handleFavorite}>
     </button>
   );
 
