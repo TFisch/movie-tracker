@@ -1,26 +1,19 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
 import { BrowserRouter, Route } from 'react-router-dom';
-import { addMovies } from '../../actions';
-import { fetchMovies } from '../../api/apiCalls';
+import PropTypes from 'prop-types';
 import { Header } from '../../components/Header';
 import Login from '../../containers/Login';
 import SignUp from '../../containers/SignUp';
 import CardContainer from '../CardContainer';
 import FavoriteContainer from '../FavoriteContainer';
 import SelectedContainer from '../SelectedContainer';
+import { fetchMovies } from '../../thunk/fetchMovies';
 import './style.css';
 
 export class App extends Component {
   componentDidMount = () => {
-    this.fetchOpeningMovies();
-  }
-
-  fetchOpeningMovies = async () => {
-    const { addMovies } = this.props;
-    const openingMovies = await fetchMovies();
-    addMovies(openingMovies);
+    this.props.fetchMovies();
   }
 
   render() {
@@ -41,11 +34,11 @@ export class App extends Component {
 }
 
 export const mapDispatchToProps = (dispatch) => ({
-  addMovies: (moviesData) => dispatch(addMovies(moviesData))
+  fetchMovies: () => dispatch(fetchMovies())
 });
 
 App.propTypes = {
-  addMovies: PropTypes.func
+  fetchMovies: PropTypes.func
 };
 
 export default connect(null, mapDispatchToProps)(App);
