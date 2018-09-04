@@ -1,0 +1,35 @@
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+
+.selected-container {
+  margin: 1.5em 0;
+  display: flex;
+  border: 2px solid $gold;
+  background-color: $turquoise;
+  justify-content: space-between;
+  width: 60%;
+  font-family: $title-font;
+  transition: 600ms;
+}
+
+.selected-container h1 {
+  color: $gold;
+  font-size: 3em;
+  text-shadow: 2.5px 2.5px black;
+  margin: 0;
+}
+
+.selected-container p {
+  margin: 0;
+  font-size: 1.2em;
+}
+
+.selected-movie-content {
+  margin: auto;
+  padding: 0 1em;
+}
+
+.selected-wrapper {
+    display: flex;
+    justify-content: center;
+}
