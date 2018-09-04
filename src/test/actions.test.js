@@ -59,7 +59,7 @@ describe('actions tests', () => {
       type: 'MANAGE_SELECTED_MOVIE',
       movie: mockCleanMovieData
     };
-    const result = actions.resetTheStore();
+    const result = actions.manageSelectedMovie(mockCleanMovieData);
     expect(result).toEqual(expectation);
   });
 });
