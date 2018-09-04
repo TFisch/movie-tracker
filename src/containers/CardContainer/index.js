@@ -7,7 +7,7 @@ import './style.css';
 export const CardContainer = (props) => {
   const displayMovies = props.movies.map(movie => (
     <Card 
-      // key={Date.now() * Math.random()} 
+      key={Date.now() * Math.random()} 
       movie={movie} 
     />)
   );
