@@ -481,3 +481,12 @@ export const mockEmail = 'tman2272@aol.com';
 export const mockPassword = 'password';
 export const mockNewEmail = 'MockNicholsen@Mock.com';
 export const mockNewUsername = 'Mock';
+
+export const mockSelectedMovie = {
+  movie_id: 353081,
+  overview: "When an IMF mission ends badly, Thunted by assassins while trying to prevent a global catastrophe.",
+  poster_path: "https://image.tmdb.org/t/p/w200/AkJQpZp9WoNdj7pLYSj1L0RcMMN.jpg",
+  release_date: "2018-07-25",
+  title: "Mission: Impossible - Fallout",
+  vote_average: 7.3
+}

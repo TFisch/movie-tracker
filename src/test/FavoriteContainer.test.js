@@ -7,10 +7,10 @@ describe('FavoriteContainer tests', () => {
   let wrapper;
   const { mockUncleanMovies } = mockData;
   beforeEach(() => {
-    wrapper = shallow( 
-      <FavoriteContainer 
+    wrapper = shallow(
+      <FavoriteContainer
         userFavorites={mockUncleanMovies}
-      /> 
+      />
     );
   });
 
@@ -21,8 +21,8 @@ describe('FavoriteContainer tests', () => {
   describe('MapStateToProps', () => {
     it('should have a favorites data array in props', () => {
       const { mockCleanMoviesDataArray } = mockData;
-      const mockState = {userFavorites: mockCleanMoviesDataArray};
-      const expected = {userFavorites: mockCleanMoviesDataArray};
+      const mockState = { userFavorites: mockCleanMoviesDataArray };
+      const expected = { userFavorites: mockCleanMoviesDataArray };
       const props = mapStateToProps(mockState);
       expect(props).toEqual(expected);
     });
