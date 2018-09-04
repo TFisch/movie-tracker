@@ -7,7 +7,7 @@
 .title-container {
   display: flex;
   flex-grow: 1;
-  justify-content: center; }
+  justify-content: left; }
 
 .title {
   color: #ffcb9a;
@@ -15,3 +15,30 @@
   font-size: 3.5em;
   margin: .5em 0;
   text-shadow: 2.5px 2.5px black; }
+
+.home-redirect {
+  background: none;
+  border: none;
+  color: #ffcb9a;
+  font-size: .8em;
+  font-family: "Montserrat", sans-serif;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+  margin-right: 1em; }
+
+.account-redirect {
+  background: none;
+  border: none;
+  color: #ffcb9a;
+  font-size: .8em;
+  font-family: "Montserrat", sans-serif;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+  margin-left: 1em; }
+
+.button-wrap {
+  display: flex;
+  justify-content: space-between;
+  width: 100%; }
