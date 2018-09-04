@@ -4,9 +4,10 @@
 
 .header {
   background-color: $turquoise;
+  border-bottom: 1px solid $gold;
   display: flex;
   justify-content: space-between;
-  padding: 0 1em;
+  padding: 1em 1em;
 }
 
 .title-container {
