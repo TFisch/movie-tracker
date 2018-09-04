@@ -14,3 +14,14 @@
     cursor: pointer;
   }
 }
+
+@mixin text-link() {
+  background:none;
+  border:none;
+  color: $gold;
+  font-size: .8em;
+  font-family: $sub-font;
+  margin:0;
+  padding:0;
+  cursor: pointer;
+}
