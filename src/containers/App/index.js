@@ -17,8 +17,9 @@ export class App extends Component {
   }
 
   fetchOpeningMovies = async () => {
+    const { addMovies } = this.props;
     const openingMovies = await fetchMovies();
-    this.props.addMovies(openingMovies);
+    addMovies(openingMovies);
   }
 
   render() {

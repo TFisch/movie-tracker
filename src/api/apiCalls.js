@@ -7,9 +7,9 @@ export const fetchMovies = async () => {
     const data = await response.json();
     return cleanMoviesData(data.results);
   } catch (error) {
-    throw new Error(error);
+    throw (new Error(error.message));
   }
-}
+};
 
 export const cleanMoviesData = async (movies) => {
   try {
@@ -28,7 +28,7 @@ export const cleanMoviesData = async (movies) => {
       );
     });
   } catch (error) {
-    throw new Error(error);
+    throw (alert("Raw movie data could not be processed " + error));
   }
 };
 
@@ -44,7 +44,7 @@ export const login = async ({ email, password }) => {
     const { id, name } = user.data;
     return { user_id: id, name };
   } catch (error) {
-    throw (alert("Invalid login information! " + error))
+    throw (alert("Could not retrieve user information " + error));
   }
 };
 
@@ -59,7 +59,7 @@ export const signUp = async ({ userName, email, password }) => {
     const user = await response.json();
     return { id: user.id, name: userName };
   } catch (error) {
-    throw new Error(error);
+    throw (alert("Could process specified user info " + error));
   }
 };
 
@@ -73,7 +73,7 @@ export const postFavorites = async (movie) => {
     });
     return await response.json();
   } catch (error) {
-    throw new Error(error);
+    throw (alert("Could not set your favorites in storage " + error));
   }
 };
 
@@ -84,7 +84,7 @@ export const getFavorites = async ({ user_id }) => {
     const usersFavorites = await response.json();
     return usersFavorites.data;
   } catch (error) {
-    throw new Error(error);
+    throw (alert("Could not retrieve your favorite movies " + error));
   }
 };
 
@@ -94,6 +94,6 @@ export const deleteFavorite = async (user_id, movie_id) => {
     const response = await fetch(url, { method: 'DELETE' });
     return response.json();
   } catch (error) {
-    throw new Error(error);
+    throw (alert("Could not remove favorite from storage " + error));
   }
 };

@@ -1,8 +1,7 @@
-import React from 'react';
-import { fetchMovies, login, signUp, cleanMoviesData } from '../api/apiCalls';
+import { fetchMovies, signUp, cleanMoviesData } from '../api/apiCalls';
 import { mockFullData, mockEmail, mockPassword, mockUncleanMovies, mockNewEmail, mockNewUsername, mockResolvedUserData, mockUserData } from '../test/mockData';
 
-describe('fetchMovies', async () => {
+describe('fetchMovies', () => {
   it('should fetch the intial movie data', () => {
     window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
       json: () => Promise.resolve(mockFullData)
@@ -11,9 +10,16 @@ describe('fetchMovies', async () => {
     fetchMovies();
     expect(window.fetch).toHaveBeenCalledWith(expected);
   });
+
+  it.skip('should return an error if the fetch fails', async () => {
+    window.fetch = jest.fn().mockImplementation(() => Promise.reject(Error(error.message)));
+    const expected = 'Fetch failed';
+    const result = await fetchMovies();
+    expect(result).toEqual(expected);
+  });
 });
 
-describe('cleanMoviesData', async () => {
+describe('cleanMoviesData', () => {
   it('should returned a clean version of movie data', async () => {
     const result = await cleanMoviesData(mockUncleanMovies);
     const expected = [{
@@ -28,27 +34,28 @@ describe('cleanMoviesData', async () => {
   });
 });
 
-describe('signup', async () => {
+describe('signup', () => {
   let url;
   let mockResponse;
-
   beforeEach(() => {
-    url = 'http://localhost:3000/api/users/new'
+    url = 'http://localhost:3000/api/users/new';
     mockResponse = {
       method: 'POST',
-      body: JSON.stringify({ name: mockNewUsername, email: mockNewEmail, password: mockPassword }),
+      body: JSON.stringify({}),
       headers: { 'Content-Type': 'application/json' }
-    }
-    window.fetch = jest.fn().mockImplementation(() => Promise.resolve({ status: 200, json: () => Promise.resolve(mockUserData) }))
+    };
+    window.fetch = jest.fn().mockImplementation(() => Promise.resolve(
+      { status: 200, json: () => Promise.resolve(mockUserData)}
+    ));
   });
 
-  it.skip('should return a success message when entering valid user data', async () => {
-    const result = await signUp(mockNewUsername, mockEmail, mockPassword)
-    expect(window.fetch).toHaveBeenCalledWith(url, mockResponse)
-  })
+  it('should return a success message when entering valid user data', async () => {
+    await signUp(mockNewUsername, mockEmail, mockPassword);
+    expect(window.fetch).toHaveBeenCalledWith(url, mockResponse);
+  });
 });
 
-describe('postFavorites', async () => {
+describe('postFavorites', () => {
   it.skip('should invoke fetch with the correct parameters', async () => {
     window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
       json: () => Promise.resolve(mockFullData)

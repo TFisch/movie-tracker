@@ -1,13 +1,11 @@
 import React from 'react';
-import { mapDispatchToProps } from '../containers/App';
-import { App } from '../containers/App';
+import { App, mapDispatchToProps } from '../containers/App';
 import { shallow } from 'enzyme';
-import { mockFullData, mockCleanMoviesDataArray, mockCleanMovieData } from '../test/mockData'
-import { addMovies } from '../actions'
+import * as mockData from '../test/mockData';
+import { addMovies } from '../actions';
 
 describe('APP tests', () => {
   let wrapper;
-
   beforeEach(() => {
     wrapper = shallow(<App addMovies={addMovies} />);
   });
@@ -19,18 +17,21 @@ describe('APP tests', () => {
   describe('fetchOpeningMovies', async () => {
     it.skip('should display the opening movies on load', async () => {
       await wrapper.instance().fetchOpeningMovies();
-
     });
-  })
+  });
 
   describe('mapDispatchToProps', () => {
-    it.skip('calls dispatch with the addMovies action when fetchOpeningMovies is called', async () => {
-      const mockDispatch = jest.fn()
-      const mockMovieData = mockCleanMovieData
-      const mappedProps = mapDispatchToProps(mockDispatch);
-      const expected = mappedProps.addMovies(mockCleanMovieData);
-      const result = mockCleanMovieData
-      expect(mappedProps).toHaveBeenCalledWith(expected);
-    })
-  })
+    let mockDispatch;
+    beforeEach(() => {
+      mockDispatch = jest.fn();
+    });
+
+    it('should dispatch addMovies when called', () => {
+      const { mockCleanMovieData } = mockData;
+      const mockAction = addMovies(mockCleanMovieData);
+      const props = mapDispatchToProps(mockDispatch);
+      props.addMovies(mockCleanMovieData);
+      expect(mockDispatch).toBeCalledWith(mockAction);
+    });
+  });
 });
