@@ -66,7 +66,7 @@ export class SignUp extends Component {
             value={password}
             onChange={this.handleChange}
           />
-          <button className="signup-button">Sign up</button>
+          <button className="signup-button">SignUp</button>
           <div className="button-wrap">
             <Link to='/login'>
               <button className="account-redirect">Already Have an Account?</button>
