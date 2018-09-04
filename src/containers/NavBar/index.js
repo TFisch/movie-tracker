@@ -19,7 +19,7 @@ export const NavBar = (props) => {
     const userWelcome = name || '';
     return (
       <div className="nav-column">
-        <h1>{`Welcome! ${userWelcome}`}</h1>
+        <h1 className="welcome-text">{`Welcome! ${userWelcome}`}</h1>
 
         <Link to={`/${name}/favorites`}>
           <button className='favorites-button'>Favorites</button>
