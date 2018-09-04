@@ -18,3 +18,13 @@
   color: $turquoise;
 }
 
+.logout-button {
+  @include button();
+  margin-left: 1em;
+}
+
+.button-wrap {
+  display: flex;
+  margin-right: 1.75em;
+  margin-top: 4.6em;
+}
