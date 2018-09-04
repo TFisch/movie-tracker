@@ -67,16 +67,18 @@ export class SignUp extends Component {
             onChange={this.handleChange}
           />
           <button className="signup-button">Sign up</button>
+          <div className="button-wrap">
+            <Link to='/login'>
+              <button className="account-redirect">Already Have an Account?</button>
+            </Link>
+            <Link to='/'>
+              <button className="home-redirect">Home</button>
+            </Link>
+            {fireRedirect && (
+              <Redirect to={`/${name}`} />
+            )}
+          </div>
         </form>
-        <Link to='/login'>
-          <button className="log-button input-field">Login</button>
-        </Link>
-        <Link to='/'>
-          <button className="log-button input-field">Home</button>
-        </Link>
-        {fireRedirect && (
-          <Redirect to={`/${name}`} />
-        )}
       </div>
     );
   }
