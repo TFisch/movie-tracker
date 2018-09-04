@@ -15,6 +15,9 @@
   font-weight: 600;
   color: #116466;
   margin-right: .5em; }
+  .login:hover {
+    color: black;
+    cursor: pointer; }
 
 .signup {
   width: 5em;
@@ -27,3 +30,6 @@
   font-weight: 600;
   color: #116466;
   color: #116466; }
+  .signup:hover {
+    color: black;
+    cursor: pointer; }
