@@ -7,16 +7,17 @@
 
 .user-login {
   align-items: center;
+  border: 1px solid $turquoise;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   position: absolute;
-  left: 35.5%;
+  left: 33.2%;
   top: 20%;
   z-index: 1;
   background-color: $grey2;
   height: 20em;
-  width: 26em;
+  width: 30em;
   font-family: $sub-font;
 }
 
@@ -38,11 +39,19 @@
   width: 5.5em;
 }
 
-.logout-button {
-  @include button();
+.redirect-signup {
+  @include text-link();
   margin-left: 1em;
 }
 
-.send-home {
-  margin-left: 1em;
+.redirect-home {
+  @include text-link();
+  margin-right: 1em;
 }
+
+.button-wrap {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
