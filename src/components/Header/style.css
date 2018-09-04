@@ -13,9 +13,10 @@
 .title {
   color: #ffcb9a;
   font-family: "Bangers", cursive;
+  align-self: center;
   font-size: 3.5em;
-  margin: .5em 0;
-  text-shadow: 2.5px 2.5px black; }
+  text-shadow: 2.5px 2.5px black;
+  margin: 0; }
 
 .home-redirect {
   background: none;
@@ -42,8 +43,3 @@
   .account-redirect:hover {
     color: #d1e8e2;
     cursor: pointer; }
-
-.button-wrap {
-  display: flex;
-  justify-content: space-between;
-  width: 100%; }
