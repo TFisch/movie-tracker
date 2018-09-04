@@ -23,5 +23,8 @@
   font-family: $sub-font;
   margin:0;
   padding:0;
-  cursor: pointer;
+  &:hover { 
+    color: $light-blue;
+    cursor: pointer;
+  }
 }

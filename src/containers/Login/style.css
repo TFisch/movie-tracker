@@ -61,8 +61,10 @@
   font-family: "Montserrat", sans-serif;
   margin: 0;
   padding: 0;
-  cursor: pointer;
-  margin-left: 1em; }
+  margin-left: 2.5em; }
+  .redirect-signup:hover {
+    color: #d1e8e2;
+    cursor: pointer; }
 
 .redirect-home {
   background: none;
@@ -72,8 +74,10 @@
   font-family: "Montserrat", sans-serif;
   margin: 0;
   padding: 0;
-  cursor: pointer;
   margin-right: 1em; }
+  .redirect-home:hover {
+    color: #d1e8e2;
+    cursor: pointer; }
 
 .button-wrap {
   display: flex;
