@@ -1,8 +1,9 @@
 .header {
   background-color: #116466;
+  border-bottom: 1px solid #ffcb9a;
   display: flex;
   justify-content: space-between;
-  padding: 0 1em; }
+  padding: 1em 1em; }
 
 .title-container {
   display: flex;
