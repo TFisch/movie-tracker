@@ -32,3 +32,4 @@ export const manageSelectedMovie = (movie) => ({
   type: 'MANAGE_SELECTED_MOVIE',
   movie
 });
+
