@@ -42,6 +42,7 @@ export const login = async ({ email, password }) => {
     });
     const user = await response.json();
     const { id, name } = user.data;
+    createLocalUser(name);
     return { user_id: id, name };
   } catch (error) {
     throw (alert("Could not retrieve user information " + error));
@@ -97,3 +98,22 @@ export const deleteFavorite = async (user_id, movie_id) => {
     throw (alert("Could not remove favorite from storage " + error));
   }
 };
+
+export const saveFavoriteLocally = (favoriteData) => {
+  if (localStorage.userObject) {
+    const user = JSON.parse(localStorage.userObject);
+    const favorites = [favoriteData];
+    const userToStore = { ...user, userFavorites: favorites };
+    const storableUser = JSON.stringify(userToStore);
+    localStorage.setItem('userObject', storableUser);
+  }
+  // const user = { name: userName };
+  // const storableUser = JSON.stringify(user);
+  // localStorage.setItem('userObject', storableUser);
+};
+
+export const createLocalUser = (name) => {
+  const userToStore = { name };
+  const storableUser = JSON.stringify(userToStore);
+  localStorage.setItem('userObject', storableUser);
+}
