@@ -7,27 +7,55 @@ import './style.css';
 
 export class NavBar extends Component {
   constructor() {
-    super()
+    super();
     this.state = {
+      activeUser: false,
+      toggleListings: false,
+      toggleFavorites: false,
+      activeName: ''
+    };
+  }
 
-    }
+  componentDidMount = () => {
+    this.checkUserStatus();
   }
 
   checkUserStatus = () => {
-    if (localStorage.userObject) {
-      console.log('hi')
+    if (localStorage.userObject && !this.state.activeUser) {
+      const nameFromStorage = JSON.parse(localStorage.userObject);
+      const name = nameFromStorage.name;
+      this.setState({ activeUser: true, activeName: name });
     }
   }
 
 
   render() {
-    this.checkUserStatus();
+
+    const userWelcome = this.state.activeName || '';
+    const { activeUser } = this.state;
     return (
-      <div className="button-wrap">
-        <Link to='/login'><button className='login'>Login</button></Link>
-        <Link to='/signup'><button className='signup'>SignUp</button></Link>
+      <div>
+        {activeUser === false &&
+          <div className="button-wrap">
+            <Link to='/login'><button className='login'>Login</button></Link>
+            <Link to='/signup'><button className='signup'>SignUp</button></Link>
+          </div>
+        }
+        {activeUser === true &&
+          < div >
+            <h1 className="welcome-text">{`Welcome! ${userWelcome}`}</h1>
+
+            <Link to={`/${this.state.activeName}/favorites`}>
+              <button className='favorites-button'>Favorites</button>
+            </Link>
+            <Link to='/'>
+              <button onClick={resetTheStore} className='logout-button'>Logout</button>
+            </Link>
+          </div>
+        }
+
       </div>
-    )
+    );
   }
 
 }
@@ -59,15 +87,15 @@ export class NavBar extends Component {
 // const favoritesPage = () => {
 //   const userWelcome = name || '';
 //   return (
-//     <div>
-//       <h1 className="welcome-text">{`Welcome! ${userWelcome}`}</h1>
-//       <Link to={`/${name}`}>
-//         <button className='favorites-button'>Home</button>
-//       </Link>
-//       <Link to='/'>
-//         <button onClick={resetTheStore} className='logout-button'>Logout</button>
-//       </Link>
-//     </div>
+// <div>
+//   <h1 className="welcome-text">{`Welcome! ${userWelcome}`}</h1>
+//   <Link to={`/${name}`}>
+//     <button className='favorites-button'>Home</button>
+//   </Link>
+//   <Link to='/'>
+//     <button onClick={resetTheStore} className='logout-button'>Logout</button>
+//   </Link>
+// </div>
 //   );
 // };
 
