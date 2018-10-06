@@ -116,4 +116,10 @@ export const createLocalUser = (name) => {
   const userToStore = { name };
   const storableUser = JSON.stringify(userToStore);
   localStorage.setItem('userObject', storableUser);
-}
+};
+
+export const setFavoritesToLocal = (userFavorites, name) => {
+  const userToStore = { name, userFavorites };
+  const storableUser = JSON.stringify(userToStore);
+  localStorage.setItem('userObject', storableUser);
+};
