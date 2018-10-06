@@ -80,7 +80,7 @@ export class Login extends Component {
 }
 
 export const mapStateToProps = (state) => ({
-  user: state.userData
+  user: state.userData,
 });
 
 export const mapDispatchToProps = (dispatch) => ({

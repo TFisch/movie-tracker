@@ -102,14 +102,11 @@ export const deleteFavorite = async (user_id, movie_id) => {
 export const saveFavoriteLocally = (favoriteData) => {
   if (localStorage.userObject) {
     const user = JSON.parse(localStorage.userObject);
-    const favorites = [favoriteData];
+    const favorites = [...user.userFavorites, favoriteData];
     const userToStore = { ...user, userFavorites: favorites };
     const storableUser = JSON.stringify(userToStore);
     localStorage.setItem('userObject', storableUser);
   }
-  // const user = { name: userName };
-  // const storableUser = JSON.stringify(user);
-  // localStorage.setItem('userObject', storableUser);
 };
 
 export const createLocalUser = (name) => {

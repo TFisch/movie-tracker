@@ -8,7 +8,7 @@ import {
   removeFavorite,
   manageSelectedMovie
 } from '../../actions';
-import { postFavorites, deleteFavorite } from '../../api/apiCalls';
+import { postFavorites, deleteFavorite, saveFavoriteLocally } from '../../api/apiCalls';
 import classNames from 'classnames/bind';
 import './style.css';
 
@@ -25,9 +25,9 @@ export const Card = (props) => {
   const rating = vote_average / 2;
 
   const buttonClass = classNames(
-    { 
-      favoriteBtn: true, 
-      favorited: props.favorites.find(movie => (movie.movie_id === props.movie.movie_id)) 
+    {
+      favoriteBtn: true,
+      favorited: props.favorites.find(movie => (movie.movie_id === props.movie.movie_id))
     }
   );
 
@@ -42,6 +42,7 @@ export const Card = (props) => {
         removeFavorite(movie);
         deleteFavorite(user_id, existingMovieId);
       } else {
+        saveFavoriteLocally(favoriteData);
         addFavorite(favoriteData);
         postFavorites(favoriteData);
       }
