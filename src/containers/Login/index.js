@@ -69,7 +69,7 @@ export class Login extends Component {
               <button className="redirect-home">Home</button>
             </Link>
             {fireRedirect && (
-              <Redirect to={`/${name}`} />
+              <Redirect to={'/profile'} />
             )}
           </div>
         </form>
