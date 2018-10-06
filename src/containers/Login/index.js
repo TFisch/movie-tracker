@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { setActiveUser, setUserFavorites } from "../../actions";
+import { setActiveUser, setUserFavorites, triggerLogin } from "../../actions";
 import { login, getFavorites } from '../../api/apiCalls';
 import { Redirect, Link } from 'react-router-dom';
 import './style.css';
@@ -24,7 +24,7 @@ export class Login extends Component {
 
   handleSubmit = async (event) => {
     event.preventDefault();
-    const { setActiveUser, setUserFavorites } = this.props;
+    const { setActiveUser, setUserFavorites, triggerLogin } = this.props;
     const { email, password } = this.state;
     if (email.length && password.length) {
       const user = await login(this.state);
@@ -32,6 +32,7 @@ export class Login extends Component {
       setActiveUser(user);
       setUserFavorites(userFavorites);
       this.setState({ userName: '', password: '', fireRedirect: true });
+      triggerLogin(true);
     } else {
       alert('Please complete login information');
     }
@@ -69,7 +70,7 @@ export class Login extends Component {
               <button className="redirect-home">Home</button>
             </Link>
             {fireRedirect && (
-              <Redirect to={'/profile'} />
+              <Redirect to={`/${name}`} />
             )}
           </div>
         </form>
@@ -80,12 +81,13 @@ export class Login extends Component {
 }
 
 export const mapStateToProps = (state) => ({
-  user: state.userData,
+  user: state.userData
 });
 
 export const mapDispatchToProps = (dispatch) => ({
   setActiveUser: (user) => dispatch(setActiveUser(user)),
-  setUserFavorites: (favorites) => dispatch(setUserFavorites(favorites))
+  setUserFavorites: (favorites) => dispatch(setUserFavorites(favorites)),
+  triggerLogin: (status) => dispatch(triggerLogin(status))
 });
 
 Login.propTypes = {
