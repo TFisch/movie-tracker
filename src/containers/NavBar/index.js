@@ -10,8 +10,8 @@ export class NavBar extends Component {
     super();
     this.state = {
       activeUser: false,
-      toggleListings: false,
-      toggleFavorites: false,
+      toggleListingsButton: false,
+      toggleFavoritesButton: false,
       activeName: ''
     };
   }
@@ -26,6 +26,10 @@ export class NavBar extends Component {
       const name = nameFromStorage.name;
       this.setState({ activeUser: true, activeName: name });
     }
+  }
+
+  handleFavoriteRedirect = () => {
+    this.setState({ toggleFavoritesButton: true, toggleListingsButton: false });
   }
 
 
@@ -46,7 +50,7 @@ export class NavBar extends Component {
             <h1 className="welcome-text">{`Welcome! ${userWelcome}`}</h1>
 
             <Link to={`/${this.state.activeName}/favorites`}>
-              <button className='favorites-button'>Favorites</button>
+              <button className='favorites-button' onClick={this.handleFavoriteRedirect}>Favorites</button>
             </Link>
             <Link to='/'>
               <button onClick={resetTheStore} className='logout-button'>Logout</button>
