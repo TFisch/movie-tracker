@@ -12,6 +12,7 @@ export class NavBar extends Component {
       activeUser: false,
       toggleListingsButton: false,
       toggleFavoritesButton: false,
+      triggerLogin: null,
       activeName: ''
     };
   }
@@ -45,8 +46,9 @@ export class NavBar extends Component {
 
 
   render() {
-
+    console.log(this.props.user);
     const userWelcome = this.state.activeName || '';
+    const { user } = this.props;
     const { activeUser, toggleFavoritesButton, toggleListingsButton } = this.state;
     return (
       <div>
@@ -80,54 +82,6 @@ export class NavBar extends Component {
   }
 
 }
-
-// const { resetTheStore } = props;
-// const { name } = tprops.user;
-// const noLoggedInNav = () => (
-//   <div className="button-wrap">
-//     <Link to='/login'><button className='login'>Login</button></Link>
-//     <Link to='/signup'><button className='signup'>SignUp</button></Link>
-//   </div>
-// );
-
-// const loggedInNav = () => {
-//   const userWelcome = name || '';
-//   return (
-//     <div className="nav-column">
-//       <h1 className="welcome-text">{`Welcome! ${userWelcome}`}</h1>
-//       <Link to={`/${name}/favorites`}>
-//         <button className='favorites-button'>Favorites</button>
-//       </Link>
-//       <Link to='/'>
-//         <button onClick={resetTheStore} className='logout-button'>Logout</button>
-//       </Link>
-//     </div>
-//   );
-// };
-
-// const favoritesPage = () => {
-//   const userWelcome = name || '';
-//   return (
-// <div>
-//   <h1 className="welcome-text">{`Welcome! ${userWelcome}`}</h1>
-/* <Link to={`/${name}`}>
-  <button className='favorites-button'>Home</button>
-</Link> */
-//   <Link to='/'>
-//     <button onClick={resetTheStore} className='logout-button'>Logout</button>
-//   </Link>
-// </div>
-//   );
-// };
-
-// return (
-//   <div className='nav-bar'>
-//     <Route exact path='/' component={noLoggedInNav}></Route>
-//     <Route exact path={`/${name}`} component={loggedInNav}></Route>
-//     <Route exact path={`/${name}/favorites`} component={favoritesPage}></Route>
-//   </div>
-// );
-// };
 
 export const mapStateToProps = (state) => ({
   user: state.userData
