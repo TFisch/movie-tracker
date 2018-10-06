@@ -36,6 +36,11 @@ export class NavBar extends Component {
     this.setState({ toggleFavoritesButton: false, toggleListingsButton: true });
   }
 
+  handleLogout = () => {
+    resetTheStore();
+    localStorage.clear();
+  }
+
 
   render() {
 
@@ -63,7 +68,7 @@ export class NavBar extends Component {
               </Link>
             }
             <Link to='/'>
-              <button onClick={resetTheStore} className='logout-button'>Logout</button>
+              <button onClick={this.handleLogout} className='logout-button'>Logout</button>
             </Link>
           </div>
         }
