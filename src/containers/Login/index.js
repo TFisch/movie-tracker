@@ -33,6 +33,7 @@ export class Login extends Component {
       setUserFavorites(userFavorites);
       this.setState({ userName: '', password: '', fireRedirect: true });
       triggerLogin(true);
+      window.location.reload();
     } else {
       alert('Please complete login information');
     }

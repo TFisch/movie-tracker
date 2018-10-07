@@ -23,6 +23,8 @@ export const Card = (props) => {
   } = props;
   const { poster_path, vote_average, movie_id } = movie;
   const rating = vote_average / 2;
+  const userObject = localStorage.userObject || {};
+
 
   const buttonClass = classNames(
     {
@@ -33,10 +35,12 @@ export const Card = (props) => {
 
   const handleFavorite = (event) => {
     event.stopPropagation();
+    const userObject = (JSON.parse(localStorage.userObject));
+    const { userFavorites } = userObject;
     const { user_id } = user;
     const favoriteData = { ...movie, user_id };
     const existingMovieId = movie_id;
-    const favoriteExists = favorites.find(favorite => favorite.movie_id === existingMovieId);
+    const favoriteExists = userFavorites.find(favorite => favorite.movie_id === existingMovieId);
     if (user_id) {
       if (favoriteExists) {
         removeFavorite(movie);

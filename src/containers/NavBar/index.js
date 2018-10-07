@@ -22,7 +22,7 @@ export class NavBar extends Component {
   }
 
   checkUserStatus = () => {
-    if (localStorage.userObject && !this.state.activeUser) {
+    if (localStorage.userObject) {
       const nameFromStorage = JSON.parse(localStorage.userObject);
       const name = nameFromStorage.name;
       this.setState({ activeUser: true, activeName: name, toggleFavoritesButton: true });
@@ -41,14 +41,13 @@ export class NavBar extends Component {
     resetTheStore();
     localStorage.clear();
     this.setState({ toggleFavoritesButton: false, toggleListingsButton: false, activeUser: false });
-
   }
 
 
   render() {
-    console.log(this.props.user);
+    console.log(this.props.activeLogin);
     const userWelcome = this.state.activeName || '';
-    const { user } = this.props;
+    const { activeLogin } = this.props;
     const { activeUser, toggleFavoritesButton, toggleListingsButton } = this.state;
     return (
       <div>
@@ -84,7 +83,8 @@ export class NavBar extends Component {
 }
 
 export const mapStateToProps = (state) => ({
-  user: state.userData
+  user: state.userData,
+  activeLogin: state.activeLogin
 });
 
 export const mapDispatchToProps = (dispatch) => ({
