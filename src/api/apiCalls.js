@@ -109,14 +109,24 @@ export const saveFavoriteLocally = (favoriteData) => {
   }
 };
 
+export const deleteFavoriteLocally = (favoriteData) => {
+  if (localStorage.userObject) {
+    const user = JSON.parse(localStorage.userObject);
+    const userFavorites = user.userFavorites.filter(movie => favoriteData.movie_id !== movie.movie_id);
+    const userToStore = { ...user, userFavorites };
+    const storableUser = JSON.stringify(userToStore);
+    localStorage.setItem('userObject', storableUser);
+  }
+};
+
 export const createLocalUser = (name) => {
   const userToStore = { name };
   const storableUser = JSON.stringify(userToStore);
   localStorage.setItem('userObject', storableUser);
 };
 
-export const setFavoritesToLocal = (userFavorites, name) => {
-  const userToStore = { name, userFavorites };
+export const setFavoritesToLocal = (userFavorites, user) => {
+  const userToStore = { name: user.name, userFavorites };
   const storableUser = JSON.stringify(userToStore);
   localStorage.setItem('userObject', storableUser);
 };
