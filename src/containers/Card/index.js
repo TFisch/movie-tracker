@@ -52,12 +52,18 @@ class Card extends Component {
   };
 
   render() {
-    // const buttonClass = classNames(
-    //   {
-    //     favoriteBtn: true,
-    //     favorited: (JSON.parse(localStorage.userObject)).userFavorites.find(movie => (movie.movie_id === this.props.movie.movie_id))
-    //   }
-    // );
+    if (localStorage.userObject) {
+      var buttonClass = classNames({
+        favoriteBtn: true,
+        favorited: JSON.parse(localStorage.userObject).userFavorites.find(
+          movie => movie.movie_id === this.props.movie.movie_id
+        )
+      });
+    } else {
+      buttonClass = classNames({
+        favoriteBtn: true
+      });
+    }
 
     const { movie, manageSelectedMovie } = this.props;
 
@@ -67,7 +73,7 @@ class Card extends Component {
     return (
       <div className="card">
         <div className="favorite-wrapper">
-          <button className={'fix'} onClick={this.handleFavorite} />
+          <button className={buttonClass} onClick={this.handleFavorite} />
           <StarRatings
             starDimension={'1em'}
             rating={rating}
