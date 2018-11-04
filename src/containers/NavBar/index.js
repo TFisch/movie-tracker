@@ -45,7 +45,6 @@ export class NavBar extends Component {
 
 
   render() {
-    console.log(this.props.activeLogin);
     const userWelcome = this.state.activeName || '';
     const { activeLogin } = this.props;
     const { activeUser, toggleFavoritesButton, toggleListingsButton } = this.state;
@@ -61,12 +60,12 @@ export class NavBar extends Component {
           < div >
             <h1 className="welcome-text">{`Welcome! ${userWelcome}`}</h1>
             {toggleFavoritesButton === true &&
-              <Link to={`/${this.state.activeName}/favorites`}>
+              <Link to={`/favorites`}>
                 <button className='favorites-button' onClick={this.handleListingsRedirect}>Favorites</button>
               </Link>
             }
             {toggleListingsButton === true &&
-              <Link to={`/${this.state.activeName}`}>
+              <Link to={`/user`}>
                 <button className='favorites-button' onClick={this.handleFavoriteRedirect}>Movies</button>
               </Link>
             }

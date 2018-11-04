@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { setActiveUser, setUserFavorites, triggerLogin } from '../../actions';
-import { login, getFavorites } from '../../api/apiCalls';
+import { login, getFavorites, setFavoritesToLocal } from '../../api/apiCalls';
 import { Redirect, Link } from 'react-router-dom';
 import './style.css';
 
@@ -29,6 +29,7 @@ export class Login extends Component {
     if (email.length && password.length) {
       const user = await login(this.state);
       const userFavorites = await getFavorites(user);
+      setFavoritesToLocal(userFavorites, user);
       setActiveUser(user);
       setUserFavorites(userFavorites);
       this.setState({ userName: '', password: '', fireRedirect: true });

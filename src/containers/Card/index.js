@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Route, Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
@@ -11,33 +11,24 @@ import {
 import {
   postFavorites,
   deleteFavorite,
-  saveFavoriteLocally
+  saveFavoriteLocally,
+  deleteFavoriteLocally
 } from '../../api/apiCalls';
 import classNames from 'classnames/bind';
 import './style.css';
 
-export const Card = props => {
-  const {
-    movie,
-    user,
-    favorites,
-    removeFavorite,
-    addFavorite,
-    manageSelectedMovie
-  } = props;
-  const { poster_path, vote_average, movie_id } = movie;
-  const rating = vote_average / 2;
-  const userObject = localStorage.userObject || {};
+class Card extends Component {
+  constructor() {
+    super();
+    this.state = {
+      userFavorties: []
+    };
+  }
 
-  const buttonClass = classNames({
-    favoriteBtn: true,
-    favorited: JSON.parse(localStorage.userObject).userFavorites.find(
-      movie => movie.movie_id === props.movie.movie_id
-    )
-  });
+  handleFavorite = () => {
+    const { movie, user } = this.props;
+    const { movie_id } = movie;
 
-  const handleFavorite = event => {
-    event.stopPropagation();
     const userObject = JSON.parse(localStorage.userObject);
     const { userFavorites } = userObject;
     const { user_id } = user;
@@ -46,44 +37,54 @@ export const Card = props => {
     const favoriteExists = userFavorites.find(
       favorite => favorite.movie_id === existingMovieId
     );
-    if (user_id) {
+    if (userObject) {
       if (favoriteExists) {
-        removeFavorite(movie);
-        deleteFavorite(user_id, existingMovieId);
+        deleteFavoriteLocally(movie);
+        // removeFavorite(movie);
+        // deleteFavorite(user_id, existingMovieId);
       } else {
         saveFavoriteLocally(favoriteData);
-        addFavorite(favoriteData);
-        postFavorites(favoriteData);
+        // addFavorite(favoriteData);
+        // postFavorites(favoriteData);
       }
     }
+    this.setState({ userFavorites: favoriteExists });
   };
 
-  const noUserFavoriteButton = () => (
-    <Link to="/login">
-      <button className={buttonClass} />
-    </Link>
-  );
+  render() {
+    // const buttonClass = classNames(
+    //   {
+    //     favoriteBtn: true,
+    //     favorited: (JSON.parse(localStorage.userObject)).userFavorites.find(movie => (movie.movie_id === this.props.movie.movie_id))
+    //   }
+    // );
 
-  const userFavoriteButton = () => (
-    <button className={buttonClass} onClick={handleFavorite} />
-  );
+    const { movie, manageSelectedMovie } = this.props;
 
-  return (
-    <div className="card" onClick={() => manageSelectedMovie(movie)}>
-      <div className="favorite-wrapper">
-        <Route exact path="/" component={noUserFavoriteButton} />
-        <Route path="/:user" component={userFavoriteButton} />
-        <StarRatings
-          starDimension={'1em'}
-          rating={rating}
-          numberOfStars={5}
-          starRatedColor={'gold'}
+    const { poster_path, vote_average } = movie;
+    const rating = vote_average / 2;
+
+    return (
+      <div className="card">
+        <div className="favorite-wrapper">
+          <button className={'fix'} onClick={this.handleFavorite} />
+          <StarRatings
+            starDimension={'1em'}
+            rating={rating}
+            numberOfStars={5}
+            starRatedColor={'gold'}
+          />
+        </div>
+        <img
+          className="poster-image"
+          src={poster_path}
+          alt="movie data"
+          onClick={() => manageSelectedMovie(movie)}
         />
       </div>
-      <img className="poster-image" src={poster_path} alt="movie data" />
-    </div>
-  );
-};
+    );
+  }
+}
 
 export const mapStateToProps = state => ({
   user: state.userData,

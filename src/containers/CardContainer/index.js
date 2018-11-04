@@ -6,9 +6,7 @@ import './style.css';
 import { setFavoritesToLocal } from '../../api/apiCalls';
 
 export const CardContainer = (props) => {
-  if (props.userFavorites.length > 0) {
-    setFavoritesToLocal(props.userFavorites, props.userData.name);
-  }
+
   const displayMovies = props.movies.map(movie => (
     <Card
       key={Date.now() * Math.random()}
