@@ -33,3 +33,7 @@ export const manageSelectedMovie = (movie) => ({
   movie
 });
 
+export const triggerLogin = (status) => ({
+  type: 'TRIGGER_LOGIN',
+  status
+});

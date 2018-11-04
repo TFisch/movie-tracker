@@ -13,6 +13,12 @@ import SelectedContainer from '../SelectedContainer';
 import './style.css';
 
 export class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      userFavorites: ""
+    };
+  }
   componentDidMount = () => {
     this.fetchOpeningMovies();
   }
@@ -29,17 +35,19 @@ export class App extends Component {
         <div className="App">
           <Route path='/' component={Header} />
           <Route exact path='/login' component={Login} />
+          <Route exact path='/login' component={CardContainer} />
           <Route exact path='/signup' component={SignUp} />
           <Route path='/' component={SelectedContainer} />
           <Route exact path='/' component={CardContainer} />
-          <Route exact path='/:landingPage' component={CardContainer} />
-          <Route exact path='/:user/favorites' component={FavoriteContainer} />
+          <Route exact path='/user' component={CardContainer} />
+          <Route exact path='/movies' component={CardContainer} />
+          <Route exact path='/favorites' render={(props) => <FavoriteContainer favorites={props} />} />
         </div>
       </BrowserRouter>
     );
   }
 }
-
+//comment
 export const mapDispatchToProps = (dispatch) => ({
   addMovies: (moviesData) => dispatch(addMovies(moviesData))
 });

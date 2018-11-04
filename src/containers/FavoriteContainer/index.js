@@ -5,7 +5,9 @@ import Card from '../../containers/Card';
 import './style.css';
 
 export const FavoriteContainer = (props) => {
-  const displayFavorites = props.userFavorites.map(movie => (
+  const user = JSON.parse(localStorage.userObject);
+  const { userFavorites } = user;
+  const displayFavorites = userFavorites.map(movie => (
     <Card
       key={Date.now() * Math.random()}
       movie={movie}

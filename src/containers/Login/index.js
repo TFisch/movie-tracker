@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { setActiveUser, setUserFavorites } from "../../actions";
-import { login, getFavorites } from '../../api/apiCalls';
+import { setActiveUser, setUserFavorites, triggerLogin } from '../../actions';
+import { login, getFavorites, setFavoritesToLocal } from '../../api/apiCalls';
 import { Redirect, Link } from 'react-router-dom';
 import './style.css';
 
@@ -16,76 +16,77 @@ export class Login extends Component {
     };
   }
 
-  handleChange = (event) => {
+  handleChange = event => {
     event.preventDefault();
     const { name, value } = event.target;
     this.setState({ [name]: value });
-  }
+  };
 
-  handleSubmit = async (event) => {
+  handleSubmit = async event => {
     event.preventDefault();
-    const { setActiveUser, setUserFavorites } = this.props;
+    const { setActiveUser, setUserFavorites, triggerLogin } = this.props;
     const { email, password } = this.state;
     if (email.length && password.length) {
       const user = await login(this.state);
       const userFavorites = await getFavorites(user);
+      setFavoritesToLocal(userFavorites, user);
       setActiveUser(user);
       setUserFavorites(userFavorites);
       this.setState({ userName: '', password: '', fireRedirect: true });
+      triggerLogin(true);
+      window.location.reload();
     } else {
       alert('Please complete login information');
     }
-  }
+  };
 
   render() {
     const { name } = this.props.user;
     const { email, password, fireRedirect } = this.state;
     return (
       <div>
-        <form className='user-login' onSubmit={this.handleSubmit}>
-          <h2 className='log-header'>Log In</h2>
+        <form className="user-login" onSubmit={this.handleSubmit}>
+          <h2 className="log-header">Log In</h2>
           <input
-            className='email input-field'
-            name='email'
-            placeholder='email'
-            type='email'
+            className="email input-field"
+            name="email"
+            placeholder="email"
+            type="email"
             value={email}
             onChange={this.handleChange}
           />
           <input
-            className='password input-field'
-            name='password'
-            placeholder='password'
-            type='password'
+            className="password input-field"
+            name="password"
+            placeholder="password"
+            type="password"
             value={password}
             onChange={this.handleChange}
           />
           <button className="log-button">Log In</button>
           <div className="button-wrap">
-            <Link to='/signup'>
+            <Link to="/signup">
               <button className="redirect-signup">Need at account?</button>
             </Link>
-            <Link to='/'>
+            <Link to="/">
               <button className="redirect-home">Home</button>
             </Link>
-            {fireRedirect && (
-              <Redirect to={`/${name}`} />
-            )}
+            {fireRedirect && <Redirect to={`/user`} />}
           </div>
         </form>
-
       </div>
     );
   }
 }
 
-export const mapStateToProps = (state) => ({
+export const mapStateToProps = state => ({
   user: state.userData
 });
 
-export const mapDispatchToProps = (dispatch) => ({
-  setActiveUser: (user) => dispatch(setActiveUser(user)),
-  setUserFavorites: (favorites) => dispatch(setUserFavorites(favorites))
+export const mapDispatchToProps = dispatch => ({
+  setActiveUser: user => dispatch(setActiveUser(user)),
+  setUserFavorites: favorites => dispatch(setUserFavorites(favorites)),
+  triggerLogin: status => dispatch(triggerLogin(status))
 });
 
 Login.propTypes = {
@@ -94,4 +95,7 @@ Login.propTypes = {
   setUserFavorites: PropTypes.func
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Login);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Login);
