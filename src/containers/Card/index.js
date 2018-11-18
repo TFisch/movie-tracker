@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Route, Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import StarRatings from 'react-star-ratings';
 import {
@@ -8,12 +7,7 @@ import {
   removeFavorite,
   manageSelectedMovie
 } from '../../actions';
-import {
-  postFavorites,
-  deleteFavorite,
-  saveFavoriteLocally,
-  deleteFavoriteLocally
-} from '../../api/apiCalls';
+import { saveFavoriteLocally, deleteFavoriteLocally } from '../../api/apiCalls';
 import classNames from 'classnames/bind';
 import './style.css';
 
@@ -40,15 +34,13 @@ class Card extends Component {
     if (userObject) {
       if (favoriteExists) {
         deleteFavoriteLocally(movie);
-        // removeFavorite(movie);
-        // deleteFavorite(user_id, existingMovieId);
+        this.props.setFavorites();
       } else {
         saveFavoriteLocally(favoriteData);
-        // addFavorite(favoriteData);
-        // postFavorites(favoriteData);
+        this.props.setFavorites();
       }
     }
-    this.setState({ userFavorites: favoriteExists });
+    this.setState({ userFavorites });
   };
 
   render() {

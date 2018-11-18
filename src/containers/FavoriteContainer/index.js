@@ -1,27 +1,39 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Card from '../../containers/Card';
 import './style.css';
 
-export const FavoriteContainer = (props) => {
-  const user = JSON.parse(localStorage.userObject);
-  const { userFavorites } = user;
-  const displayFavorites = userFavorites.map(movie => (
-    <Card
-      key={Date.now() * Math.random()}
-      movie={movie}
-    />)
-  );
+export class FavoriteContainer extends Component {
+  state = {
+    userFavorites: []
+  };
 
-  return (
-    <div className="card-container">
-      {displayFavorites}
-    </div>
-  );
-};
+  componentDidMount = () => {
+    this.setFavorites();
+  };
 
-export const mapStateToProps = (state) => ({
+  setFavorites = () => {
+    const user = JSON.parse(localStorage.userObject);
+    const { userFavorites } = user;
+    this.setState({ userFavorites });
+  };
+
+  render() {
+    const user = JSON.parse(localStorage.userObject);
+    const { userFavorites } = user;
+    const displayFavorites = userFavorites.map(movie => (
+      <Card
+        key={Date.now() * Math.random()}
+        movie={movie}
+        setFavorites={this.setFavorites}
+      />
+    ));
+
+    return <div className="card-container">{displayFavorites}</div>;
+  }
+}
+export const mapStateToProps = state => ({
   userFavorites: state.userFavorites
 });
 
